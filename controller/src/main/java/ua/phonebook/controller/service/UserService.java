@@ -31,23 +31,43 @@ public class UserService {
         return user;
     }
 
-    public User login(String login, String pass) throws RegistrationException {
+    public User login(String login, String pass) throws LoginException {
         User user = userDao.findUserByLogin(login);
         if(user != null){
             if(user.getPass().equals(pass)){
                 return user;
             }
         }
-        throw new RegistrationException("Login or pass is not correct");
+        throw new LoginException("Login or pass is not correct");
     }
 
-    public User find(String login, String pass) throws LoginException {
-        User user = userDao.findUserByLogin(login);
+    public User changeFirstName(int idUser, String newFirstName){
+        userDao.changeFirstName(idUser, newFirstName);
+        return userDao.findUserById(idUser);
+    }
 
-        if(pass.equals(user.getPass())){
-            return user;
-        }
+    public User changeLastName(int idUser, String newLastName){
+        userDao.changeLastName(idUser, newLastName);
+        return userDao.findUserById(idUser);
+    }
 
-        throw new LoginException("Incorrect login or pass");
+    public User changeMobilePhone(int idUser, String newMobilePhone){
+        userDao.changeMobileTelephone(idUser, newMobilePhone);
+        return userDao.findUserById(idUser);
+    }
+
+    public User changeHomePhone(int idUser, String newHomePhone){
+        userDao.changeHomeTelephone(idUser, newHomePhone);
+        return userDao.findUserById(idUser);
+    }
+
+    public User changeEmail(int idUser, String newEmail){
+        userDao.changeEmail(idUser, newEmail);
+        return userDao.findUserById(idUser);
+    }
+
+    public User changePass(int idUser, String newPass){
+        userDao.changePass(idUser, newPass);
+        return userDao.findUserById(idUser);
     }
 }

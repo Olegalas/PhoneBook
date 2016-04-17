@@ -111,3 +111,17 @@
 2016-04-17 01:46:45 INFO  UserService:29 - User was persisted
 2016-04-17 01:46:45 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
 2016-04-17 01:46:47 INFO  TestDao:34 - ********DataBase was removed
+2016-04-17 23:00:03 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 23:00:04 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 23:00:04 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 23:00:04 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 23:00:04 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 23:00:07 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 23:00:07 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 23:00:09 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 23:00:10 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 23:00:13 INFO  UserService:30 - User was persisted
+2016-04-17 23:00:14 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-17 23:00:16 INFO  TestDao:35 - ********DataBase was removed

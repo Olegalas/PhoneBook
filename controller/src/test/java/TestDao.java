@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ua.phonebook.controller.exceptions.LoginException;
 import ua.phonebook.controller.exceptions.RegistrationException;
 import ua.phonebook.controller.service.UserService;
 import ua.phonebook.model.User;
@@ -39,7 +40,7 @@ public class TestDao {
     }
 
     @Test
-    public void saveAndFindUser() throws RegistrationException {
+    public void saveAndFindUser() throws RegistrationException, LoginException {
 
         UserService service = context.getBean(UserService.class);
 
@@ -57,5 +58,45 @@ public class TestDao {
 
         Assert.assertEquals(user, userFromDB);
 
+    }
+
+    @Test
+    public void changeUser() throws RegistrationException, LoginException {
+
+        UserService service = context.getBean(UserService.class);
+
+        User user = new User();
+        user.setLogin("login");
+        user.setFirstName("firstName");
+        user.setLastName("lastName");
+        user.setEmail("email");
+        user.setMobileTelephone("111");
+        user.setHomeTelephone("222");
+        user.setPass("pass");
+
+        service.registration(user);
+
+        String newFirstName = "newFirstName";
+        String newLastName = "newLastName";
+        String newEmail = "newEmail";
+        String newMobilePhone = "newMobilePhone";
+        String newHomePhone = "newHomePhone";
+        String newPass = "newPass";
+
+        service.changeFirstName(user.getId(), newFirstName);
+        service.changeLastName(user.getId(), newLastName);
+        service.changeEmail(user.getId(), newEmail);
+        service.changeMobilePhone(user.getId(), newMobilePhone);
+        service.changeHomePhone(user.getId(), newHomePhone);
+        service.changePass(user.getId(), newPass);
+
+        User actualUser = service.login(user.getLogin(), newPass);
+
+        Assert.assertEquals(newFirstName, actualUser.getFirstName());
+        Assert.assertEquals(newLastName, actualUser.getLastName());
+        Assert.assertEquals(newEmail, actualUser.getEmail());
+        Assert.assertEquals(newMobilePhone, actualUser.getMobileTelephone());
+        Assert.assertEquals(newHomePhone, actualUser.getHomeTelephone());
+        Assert.assertEquals(newPass, actualUser.getPass());
     }
 }

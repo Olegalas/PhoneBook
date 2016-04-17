@@ -45,7 +45,7 @@ public class UserLoginServlet extends HttpServlet{
 
         try {
 
-            User user = userService.find(login, pass);
+            User user = userService.login(login, pass);
             HttpSession session = req.getSession(true);
             session.setAttribute("inSystem", true);
             session.setAttribute("currentUser", user);

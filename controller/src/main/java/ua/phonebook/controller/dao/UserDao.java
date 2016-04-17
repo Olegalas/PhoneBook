@@ -68,6 +68,11 @@ public class UserDao {
                 setParameter("homeTelephone", number).setParameter("id", idUser).executeUpdate();
     }
 
+    public void changePass(int idUser, String pass){
+        manager.createQuery("UPDATE User set pass = :pass WHERE id = :id").
+                setParameter("pass", pass).setParameter("id", idUser).executeUpdate();
+    }
+
     public User remove(int idUser){
         User user = manager.find(User.class, idUser);
         manager.createQuery("DELETE FROM User WHERE id = :id").setParameter("id", idUser).executeUpdate();
