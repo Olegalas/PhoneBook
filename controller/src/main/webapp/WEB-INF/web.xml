@@ -1,0 +1,29 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <listener>
+        <listener-class>
+            ua.phonebook.controller.listeners.InitSpringContextListener
+        </listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>springLocation</param-name>
+        <param-value>spring-context.xml</param-value>
+    </context-param>
+
+
+    <!--<servlet>-->
+        <!--<servlet-name>UserRegistrationServlet</servlet-name>-->
+        <!--<servlet-class>ua.phonebook.controller.servlets.UserRegistrationServletvlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>UserRegistrationServlet</servlet-name>-->
+        <!--<url-pattern>/registration</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+</web-app>

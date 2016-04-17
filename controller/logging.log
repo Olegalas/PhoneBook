@@ -1,0 +1,113 @@
+2016-04-17 01:08:20 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:08:22 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:08:22 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:08:22 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:08:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:08:24 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:08:24 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:16:07 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:16:08 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:16:08 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:16:08 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:16:08 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:16:11 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:16:11 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:16:12 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:16:14 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:16:14 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:16:14 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:16:15 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:16:15 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:16:16 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:16:16 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:16:23 INFO  UserService:29 - User was persisted
+2016-04-17 01:16:23 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-17 01:27:16 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:27:17 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:27:17 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:27:17 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:27:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:27:19 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:27:19 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:27:21 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:27:23 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:27:27 WARN  SqlExceptionHelper:127 - SQL Error: 1062, SQLState: 23000
+2016-04-17 01:27:27 ERROR SqlExceptionHelper:129 - Duplicate entry 'login' for key 'UK_ow0gan20590jrb00upg3va2fn'
+2016-04-17 01:27:27 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2016-04-17 01:27:27 ERROR TestDao:37 - Error connection
+2016-04-17 01:27:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:27:52 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:27:52 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:27:52 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:27:52 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:27:54 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:27:54 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:27:55 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:27:56 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:27:59 WARN  SqlExceptionHelper:127 - SQL Error: 1062, SQLState: 23000
+2016-04-17 01:27:59 ERROR SqlExceptionHelper:129 - Duplicate entry 'login' for key 'UK_ow0gan20590jrb00upg3va2fn'
+2016-04-17 01:27:59 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2016-04-17 01:27:59 ERROR TestDao:37 - Error connection
+2016-04-17 01:28:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:28:51 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:28:51 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:28:51 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:28:51 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:28:52 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:28:52 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:28:54 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:28:55 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:28:57 WARN  SqlExceptionHelper:127 - SQL Error: 1062, SQLState: 23000
+2016-04-17 01:28:57 ERROR SqlExceptionHelper:129 - Duplicate entry 'login' for key 'UK_ow0gan20590jrb00upg3va2fn'
+2016-04-17 01:28:57 INFO  AbstractBatchImpl:193 - HHH000010: On release of batch it still contained JDBC statements
+2016-04-17 01:28:58 INFO  TestDao:34 - ********DataBase was removed
+2016-04-17 01:29:12 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:29:13 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:29:13 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:29:13 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:29:13 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:29:14 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:29:14 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:29:15 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:29:16 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:29:16 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:29:16 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:29:18 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:29:18 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:29:18 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:29:18 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:29:23 INFO  UserService:29 - User was persisted
+2016-04-17 01:29:23 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-17 01:29:24 INFO  TestDao:34 - ********DataBase was removed
+2016-04-17 01:46:28 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-04-17 01:46:29 INFO  Version:37 - HHH000412: Hibernate Core {5.0.3.Final}
+2016-04-17 01:46:29 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-04-17 01:46:29 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-17 01:46:29 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2016-04-17 01:46:31 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-17 01:46:31 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-17 01:46:33 INFO  Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-17 01:46:35 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2016-04-17 01:46:35 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:46:35 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: hibernate_sequence
+2016-04-17 01:46:38 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:46:38 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users
+2016-04-17 01:46:38 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:46:38 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:338 - HHH000262: Table not found: users_users
+2016-04-17 01:46:45 INFO  UserService:29 - User was persisted
+2016-04-17 01:46:45 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-17 01:46:47 INFO  TestDao:34 - ********DataBase was removed
