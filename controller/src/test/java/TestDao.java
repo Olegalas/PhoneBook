@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ua.phonebook.controller.exceptions.DataBaseException;
+import ua.phonebook.controller.exceptions.RegistrationException;
 import ua.phonebook.controller.service.UserService;
 import ua.phonebook.model.User;
 
@@ -39,7 +39,7 @@ public class TestDao {
     }
 
     @Test
-    public void saveAndFindUser() throws DataBaseException {
+    public void saveAndFindUser() throws RegistrationException {
 
         UserService service = context.getBean(UserService.class);
 

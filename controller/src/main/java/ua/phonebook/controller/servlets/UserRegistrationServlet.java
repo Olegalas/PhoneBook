@@ -2,7 +2,7 @@ package ua.phonebook.controller.servlets;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
-import ua.phonebook.controller.exceptions.DataBaseException;
+import ua.phonebook.controller.exceptions.RegistrationException;
 import ua.phonebook.controller.service.UserService;
 import ua.phonebook.model.User;
 
@@ -62,8 +62,8 @@ public class UserRegistrationServlet extends HttpServlet{
         try {
             User created = userService.registration(user);
             req.setAttribute("user", created);
-            req.getRequestDispatcher("/WEB-INF/pages/welcome.jsp").forward(req,resp);
-        } catch (DataBaseException e) {
+            req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req,resp);
+        } catch (RegistrationException e) {
             LOG.error(e);
             req.getRequestDispatcher("/WEB-INF/pages/registration.jsp").forward(req,resp);
             // forward to a error page
