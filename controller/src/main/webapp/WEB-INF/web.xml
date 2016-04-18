@@ -4,17 +4,6 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <listener>
-        <listener-class>
-            ua.phonebook.controller.listeners.InitSpringContextListener
-        </listener-class>
-    </listener>
-
-    <context-param>
-        <param-name>springLocation</param-name>
-        <param-value>spring-context.xml</param-value>
-    </context-param>
-
 
     <servlet>
         <servlet-name>spring</servlet-name>
@@ -24,7 +13,7 @@
 
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
-        <url-pattern>/phonebook/controller/com/olegalas/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
     <listener>

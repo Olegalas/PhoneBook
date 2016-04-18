@@ -1,26 +1,23 @@
-package ua.phonebook.controller.servlets;
+package ua.phonebook.servlets;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
-import ua.phonebook.controller.exceptions.LoginException;
-import ua.phonebook.controller.service.UserService;
-import ua.phonebook.model.User;
+import ua.phonebook.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
  * Created by dexter on 17.04.16.
  */
-@WebServlet(urlPatterns = "/login")
-public class UserLoginServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/home")
+public class UserHomeServlet extends HttpServlet {
 
-    private static final Logger LOG = Logger.getLogger(UserLoginServlet.class);
+    private static final Logger LOG = Logger.getLogger(UserHomeServlet.class);
 
     private ApplicationContext applicationContext;
     private UserService userService;
@@ -40,23 +37,12 @@ public class UserLoginServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String login = req.getParameter("login");
-        String pass = req.getParameter("pass");
 
-        try {
 
-            User user = userService.login(login, pass);
-            HttpSession session = req.getSession(true);
-            session.setAttribute("inSystem", true);
-            session.setAttribute("currentUser", user);
 
-            resp.sendRedirect("home.jsp");
 
-        } catch (LoginException e) {
-            LOG.error(e);
-            // return to login page with error message
-            req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req,resp);
-        }
+
+
 
     }
 

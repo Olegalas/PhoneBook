@@ -1,4 +1,4 @@
-package ua.phonebook.controller.exceptions;
+package ua.phonebook.exceptions;
 
 /**
  * Created by dexter on 16.04.16.

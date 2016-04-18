@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>model</module>
+        <module>controller</module>
     </modules>
 
     <dependencies>
@@ -20,18 +20,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.6.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.8.3</version>
         </dependency>
 
     </dependencies>

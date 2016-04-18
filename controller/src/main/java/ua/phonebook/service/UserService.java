@@ -1,17 +1,17 @@
-package ua.phonebook.controller.service;
+package ua.phonebook.service;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.phonebook.controller.dao.UserDao;
-import ua.phonebook.controller.exceptions.RegistrationException;
-import ua.phonebook.controller.exceptions.LoginException;
+import ua.phonebook.dao.UserDao;
+import ua.phonebook.exceptions.RegistrationException;
+import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.model.User;
 
 /**
  * Created by dexter on 16.04.16.
  */
-@Service("personService")
+@Service
 public class UserService {
 
     private static final Logger LOGGER = Logger.getLogger(UserService.class);

@@ -1,6 +1,7 @@
-package ua.phonebook.controller.dao;
+package ua.phonebook.dao;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.phonebook.model.User;
@@ -11,7 +12,7 @@ import javax.persistence.PersistenceContext;
 /**
  * Created by dexter on 15.04.16.
  */
-@Service
+@Component
 @Transactional
 public class UserDao {
 

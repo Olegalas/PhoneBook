@@ -1,15 +1,11 @@
-package com.olegalas.controller;
+package ua.phonebook.controller;
 
 import org.apache.log4j.Logger;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ua.phonebook.controller.exceptions.LoginException;
-import ua.phonebook.controller.service.UserService;
+import ua.phonebook.exceptions.LoginException;
+import ua.phonebook.service.UserService;
 
 import javax.annotation.Resource;
 
@@ -20,10 +16,9 @@ import javax.annotation.Resource;
 @RequestMapping("/main")
 public class MainController {
 
-
     private static final Logger LOGGER = Logger.getLogger(MainController.class);
 
-    @Resource(name="personService")
+    @Autowired
     private UserService service;
 
     @ResponseBody
@@ -38,6 +33,7 @@ public class MainController {
         } catch (LoginException e) {
             LOGGER.error("***LoginException : " + e.getMessage());
         }
+
         return "home";
     }
 }

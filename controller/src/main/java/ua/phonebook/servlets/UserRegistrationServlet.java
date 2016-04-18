@@ -1,9 +1,9 @@
-package ua.phonebook.controller.servlets;
+package ua.phonebook.servlets;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
-import ua.phonebook.controller.exceptions.RegistrationException;
-import ua.phonebook.controller.service.UserService;
+import ua.phonebook.exceptions.RegistrationException;
+import ua.phonebook.service.UserService;
 import ua.phonebook.model.User;
 
 import javax.servlet.ServletException;

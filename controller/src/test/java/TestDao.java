@@ -1,12 +1,13 @@
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ua.phonebook.controller.exceptions.LoginException;
-import ua.phonebook.controller.exceptions.RegistrationException;
-import ua.phonebook.controller.service.UserService;
+import ua.phonebook.exceptions.LoginException;
+import ua.phonebook.exceptions.RegistrationException;
+import ua.phonebook.service.UserService;
 import ua.phonebook.model.User;
 
 import java.sql.Connection;
@@ -17,6 +18,7 @@ import java.sql.Statement;
 /**
  * Created by dexter on 17.04.16.
  */
+@Ignore
 public class TestDao {
 
     private static final Logger LOGGER = Logger.getLogger(TestDao.class);
@@ -26,7 +28,7 @@ public class TestDao {
     @After
     public void after() throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "root")) {
+        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "")) {
 
             Statement statement = connection.createStatement();
             statement.execute("drop table hibernate_sequence");
