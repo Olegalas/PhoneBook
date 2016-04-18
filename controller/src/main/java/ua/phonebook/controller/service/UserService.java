@@ -11,7 +11,7 @@ import ua.phonebook.model.User;
 /**
  * Created by dexter on 16.04.16.
  */
-@Service
+@Service("personService")
 public class UserService {
 
     private static final Logger LOGGER = Logger.getLogger(UserService.class);
