@@ -1,50 +1,56 @@
 package ua.phonebook.model;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
- * Created by dexter on 15.04.16.
+ * Created by dexter on 19.04.16.
  */
-@Entity
-@Table(name = "users")
-public class User extends IdGenerate{
+public class UserDTO {
 
-    @Column(nullable = false, unique = true)
+    private int id;
+
     private String login;
 
-    @Column(nullable = false)
     private String pass;
 
     private String firstName;
 
     private String lastName;
 
-    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String mobileTelephone;
 
     private String homeTelephone;
 
-    @ManyToOne
-    @JoinColumn(name="friend_id", referencedColumnName = "id")
-    private User toPhoneBook;
+    public UserDTO() {
+    }
 
-    @OneToMany(mappedBy = "toPhoneBook", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> phoneBook = new ArrayList<>();
+    public UserDTO(User user){
 
-    public User() {
+        id = user.getId();
+        login = user.getLogin();
+        pass = user.getPass();
+        firstName = user.getFirstName();
+        lastName = user.getLastName();
+        email = user.getEmail();
+        mobileTelephone = user.getMobileTelephone();
+        homeTelephone = user.getHomeTelephone();
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPass() {
@@ -53,6 +59,10 @@ public class User extends IdGenerate{
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstName() {
@@ -95,33 +105,32 @@ public class User extends IdGenerate{
         this.homeTelephone = homeTelephone;
     }
 
-    public User getToPhoneBook() {
-        return toPhoneBook;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserDTO userDTO = (UserDTO) o;
+
+        return id == userDTO.id;
+
     }
 
-    public void setToPhoneBook(User toPhoneBook) {
-        this.toPhoneBook = toPhoneBook;
-    }
-
-    public List<User> getPhoneBook() {
-        return phoneBook;
-    }
-
-    public void setPhoneBook(List<User> phoneBook) {
-        this.phoneBook = phoneBook;
+    @Override
+    public int hashCode() {
+        return id;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "login='" + login + '\'' +
+        return "UserDTO{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", mobileTelephone='" + mobileTelephone + '\'' +
                 ", homeTelephone='" + homeTelephone + '\'' +
-                ", toPhoneBook=" + toPhoneBook +
-                ", phoneBook=" + phoneBook +
                 '}';
     }
 }

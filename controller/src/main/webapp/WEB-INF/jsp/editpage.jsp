@@ -14,7 +14,7 @@
 
 
 <h1><c:out value="${message}" /></h1>
-<c:url var="saveUrl" value="/"/>
+<c:url var="saveUrl" value="/edituser?id={user.id}&personal=${personal}"/>
 <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
     <table>
         <tr>
@@ -42,6 +42,7 @@
             <td><form:input path="homePhone" disabled="false"/></td>
         </tr>
 
+        <c:if test="${personal == user.id}">
         <tr>
             <td><form:label path="oldPass">Enter old pass:</form:label></td>
             <td><form:input path="oldPass" disabled="false"/></td>
@@ -56,9 +57,10 @@
             <td><form:label path="rePass">Enter new pass:</form:label></td>
             <td><form:input path="rePass" disabled="false"/></td>
         </tr>
+        </c:if>
     </table>
 
-    <input type="submit" value="Sign in"/>
+    <input type="submit" value="Edit"/>
 </form:form>
 <c:url var="goBack" value="/home?id=${user.id}" />
 <a href="${goBack}">go back</a>

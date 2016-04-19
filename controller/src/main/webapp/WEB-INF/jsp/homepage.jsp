@@ -13,7 +13,7 @@
     <c:out value="${user.mobilePhone}" />
     <c:out value="${user.homePhone}" />
 
-   <c:url var="editUrl" value="/edit?id=${user.id}" />
+   <c:url var="editUrl" value="/edit?id=${user.id}&personal=${user.id}" />
    <c:url var="showAllUrl" value="/contacts?id=${user.id}" />
    <c:url var="createContactUrl" value="" />
    <tr>

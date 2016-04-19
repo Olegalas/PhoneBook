@@ -15,10 +15,9 @@
 
 <h1><c:out value="${message}" /></h1>
 
-<c:url var="saveUrl" value="/"/>
 <c:forEach items="${user.phoneBook}" var="contact">
 
-   <c:url var="editUrl" value="/" />
+   <c:url var="editUrl" value="/edit?id=${user.id}&personal=${contact.id}" />
    <c:url var="deleteUrl" value="/" />
 
   <tr>

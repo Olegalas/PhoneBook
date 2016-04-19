@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.model.User;
+import ua.phonebook.model.UserDTO;
 import ua.phonebook.service.UserService;
 import ua.phonebook.utils.UserSecurity;
 
@@ -96,14 +97,19 @@ public class MainController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editPost(@RequestParam(value = "id", required = true) String id, Model model) {
+    public String editPost(@RequestParam(value = "id", required = true) String id,
+                           @RequestParam(value = "personal", required = true) String personal,Model model) {
 
         LOGGER.debug("***Enter in editPost method");
 
         if(UserSecurity.userCheck(id, model)){
             return "/";
         }
-        model.addAttribute("message", "Edit your profile");
+
+        UserDTO userDTO = new UserDTO();
+        model.addAttribute("personAttribute", userDTO);
+        model.addAttribute("message", "Edit profile");
+        model.addAttribute("personal", personal);
 
         return "editpage";
     }
@@ -116,6 +122,24 @@ public class MainController {
         if(UserSecurity.userCheck(id, model)){
             return "/";
         }
+
+
+        model.addAttribute("message", "All your contacts");
+        return "contactspage";
+    }
+
+    @RequestMapping(value = "/edituser", method = RequestMethod.POST)
+    public String editUserPost(@RequestParam(value = "id", required = true) String id,
+                               @RequestParam(value = "personal", required = true) String personal,
+                               @ModelAttribute("personAttribute") UserDTO userDTO, Model model) {
+
+        LOGGER.debug("***Enter in editUserPost method");
+
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+
+
 
         model.addAttribute("message", "All your contacts");
 

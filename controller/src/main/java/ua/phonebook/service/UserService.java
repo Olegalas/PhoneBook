@@ -7,6 +7,7 @@ import ua.phonebook.dao.UserDao;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.model.User;
+import ua.phonebook.model.UserDTO;
 
 /**
  * Created by dexter on 16.04.16.
@@ -69,5 +70,17 @@ public class UserService {
     public User changePass(int idUser, String newPass){
         userDao.changePass(idUser, newPass);
         return userDao.findUserById(idUser);
+    }
+
+    public User changeUser(UserDTO userDTO){
+
+        changeFirstName(userDTO.getId(), userDTO.getFirstName());
+        changeLastName(userDTO.getId(), userDTO.getLastName());
+        changeEmail(userDTO.getId(), userDTO.getEmail());
+        changeMobilePhone(userDTO.getId(), userDTO.getMobileTelephone());
+        changeHomePhone(userDTO.getId(), userDTO.getHomeTelephone());
+        changePass(userDTO.getId(), userDTO.getPass());
+
+        return userDao.findUserByLogin(userDTO.getLogin());
     }
 }
