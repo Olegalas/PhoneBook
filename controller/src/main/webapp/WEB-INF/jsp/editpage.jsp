@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+
+<h1><c:out value="${message}" /></h1>
+<c:url var="saveUrl" value="/"/>
+<form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
+    <table>
+        <tr>
+            <td><form:label path="firstName">Enter first name:</form:label></td>
+            <td><form:input path="firstName" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="lustName">Enter last name:</form:label></td>
+            <td><form:input path="lustName" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="email">Enter email:</form:label></td>
+            <td><form:input path="email" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="mobilePhone">Enter mobilePhone:</form:label></td>
+            <td><form:input path="mobilePhone" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="homePhone">Enter homePhone:</form:label></td>
+            <td><form:input path="homePhone" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="oldPass">Enter old pass:</form:label></td>
+            <td><form:input path="oldPass" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="newPass">Enter new pass:</form:label></td>
+            <td><form:input path="newPass" disabled="false"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="rePass">Enter new pass:</form:label></td>
+            <td><form:input path="rePass" disabled="false"/></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Sign in"/>
+</form:form>
+<c:url var="goBack" value="/home?id=${user.id}" />
+<a href="${goBack}">go back</a>
+
+</body>
+</html>

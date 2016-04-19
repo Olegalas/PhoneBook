@@ -11,6 +11,7 @@ import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.model.User;
 import ua.phonebook.service.UserService;
+import ua.phonebook.utils.UserSecurity;
 
 import javax.annotation.Resource;
 
@@ -24,6 +25,9 @@ public class MainController {
     private static final Logger LOGGER = Logger.getLogger(MainController.class);
 
     @Autowired
+
+
+
     private UserService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -45,7 +49,7 @@ public class MainController {
             User user = service.login(login, pass);
             LOGGER.info("User entered in.. user login - " + user.getLogin());
             model.addAttribute("user", user);
-            return "home";
+            return "home?id=" + user.getId();
         } catch (LoginException e) {
             LOGGER.error("***LoginException : ", e);
             model.addAttribute("message", e.getMessage());
@@ -79,4 +83,42 @@ public class MainController {
         }
     }
 
+    @RequestMapping(value = "/home", method = RequestMethod.POST)
+    public String userHomePagePost(@RequestParam(value = "id", required = true) String id, Model model) {
+
+        LOGGER.debug("***Enter in userHomePagePost method");
+
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+
+        return "homepage";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String editPost(@RequestParam(value = "id", required = true) String id, Model model) {
+
+        LOGGER.debug("***Enter in editPost method");
+
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+        model.addAttribute("message", "Edit your profile");
+
+        return "editpage";
+    }
+
+    @RequestMapping(value = "/contacts", method = RequestMethod.POST)
+    public String contactsPost(@RequestParam(value = "id", required = true) String id, Model model) {
+
+        LOGGER.debug("***Enter in contactsPost method");
+
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+
+        model.addAttribute("message", "All your contacts");
+
+        return "contactspage";
+    }
 }

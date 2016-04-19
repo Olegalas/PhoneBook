@@ -28,12 +28,12 @@ public class TestDao {
     @After
     public void after() throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "")) {
+        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "root")) {
 
             Statement statement = connection.createStatement();
             statement.execute("drop table hibernate_sequence");
-            statement.execute("drop table users_users");
             statement.execute("drop table users");
+            statement.execute("drop table users_users");
             LOGGER.info("********DataBase was removed");
 
         } catch (SQLException e) {
