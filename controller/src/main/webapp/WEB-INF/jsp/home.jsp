@@ -1,16 +1,30 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Home</title>
+<title>PhoneBook Home</title>
 </head>
 <body>
 
-<h1>Home</h1>
+
+    <c:out value="${user.login}" />
+    <c:out value="${user.firstName}" />
+    <c:out value="${user.lastName}" />
+    <c:out value="${user.email}" />
+    <c:out value="${user.mobilePhone}" />
+    <c:out value="${user.homePhone}" />
+
+    <c:forEach items="${user.phoneBook}" var="user">
+       <c:url var="editUrl" value="" />
+       <c:url var="deleteUrl" value="" />
+      <tr>
+       <td><c:out value="${user.login}" /></td>
+       <td><a href="${editUrl}">Edit</a></td>
+       <td><a href="${deleteUrl}">Delete</a></td>
+       <td><a href="${addUrl}">Add</a></td>
+      </tr>
+     </c:forEach>
+
 
 </body>
 </html>
