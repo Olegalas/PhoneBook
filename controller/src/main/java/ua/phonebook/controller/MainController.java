@@ -32,7 +32,7 @@ public class MainController {
         LOGGER.debug("***Enter in firstPage method");
 
         model.addAttribute("message", "Enter your login and pass");
-        return "login";
+        return "loginpage";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -49,7 +49,7 @@ public class MainController {
         } catch (LoginException e) {
             LOGGER.error("***LoginException : ", e);
             model.addAttribute("message", e.getMessage());
-            return "login";
+            return "loginPage";
         }
     }
 
@@ -58,7 +58,7 @@ public class MainController {
 
         LOGGER.debug("***Enter in registrationGet method");
         model.addAttribute("message", "Sign up");
-        return "registration";
+        return "registrationpage";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -71,11 +71,11 @@ public class MainController {
             service.registration(user);
             LOGGER.info("User has been saved");
             model.addAttribute("message", "Enter your login and pass");
-            return "login";
+            return "loginPage";
         } catch (RegistrationException e) {
             LOGGER.error("***LoginException : ", e);
             model.addAttribute("message", e.getMessage());
-            return "registration";
+            return "registrationpage";
         }
     }
 
