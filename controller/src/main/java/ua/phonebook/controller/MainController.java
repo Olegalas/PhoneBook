@@ -26,9 +26,6 @@ public class MainController {
     private static final Logger LOGGER = Logger.getLogger(MainController.class);
 
     @Autowired
-
-
-
     private UserService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -139,10 +136,36 @@ public class MainController {
             return "/";
         }
 
+        service.changeUser(userDTO);
+        return "homepage";
+    }
 
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deletePost(@RequestParam(value = "id", required = true) String id,
+                           @RequestParam(value = "personal", required = true) String personal,Model model) {
 
-        model.addAttribute("message", "All your contacts");
+        LOGGER.debug("***Enter in deletePost method");
 
-        return "contactspage";
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+
+        service.removeContact(personal);
+        return "homepage";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addContactPost(@RequestParam(value = "id", required = true) String id, Model model) {
+
+        LOGGER.debug("***Enter in addContactPost method");
+
+        if(UserSecurity.userCheck(id, model)){
+            return "/";
+        }
+
+        // TODO: 20.04.16 create userDTO... save it... and them edit
+
+        model.addAttribute("message", "Fill up next fields");
+        return "editpage";
     }
 }

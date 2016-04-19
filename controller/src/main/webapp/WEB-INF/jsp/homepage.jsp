@@ -15,7 +15,7 @@
 
    <c:url var="editUrl" value="/edit?id=${user.id}&personal=${user.id}" />
    <c:url var="showAllUrl" value="/contacts?id=${user.id}" />
-   <c:url var="createContactUrl" value="" />
+   <c:url var="createContactUrl" value="/add?id=${user.id}" />
    <tr>
      <td><a href="${editUrl}">Edit profile</a></td>
      <td><a href="${showAllUrl}">Show all contacts</a></td>

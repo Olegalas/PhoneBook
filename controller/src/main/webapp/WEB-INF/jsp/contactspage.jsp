@@ -18,7 +18,7 @@
 <c:forEach items="${user.phoneBook}" var="contact">
 
    <c:url var="editUrl" value="/edit?id=${user.id}&personal=${contact.id}" />
-   <c:url var="deleteUrl" value="/" />
+   <c:url var="deleteUrl" value="/delete?id=${user.id}&personal=${contact.id}" />
 
   <tr>
    <td><c:out value="${contact.firstName}" /></td>

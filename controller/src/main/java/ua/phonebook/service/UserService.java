@@ -83,4 +83,8 @@ public class UserService {
 
         return userDao.findUserByLogin(userDTO.getLogin());
     }
+
+    public void removeContact(String idContact){
+        userDao.remove(Integer.parseInt(idContact));
+    }
 }
