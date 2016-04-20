@@ -3,11 +3,12 @@ package ua.phonebook.service;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.phonebook.dao.ContactDao;
 import ua.phonebook.dao.UserDao;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.exceptions.LoginException;
+import ua.phonebook.model.Contact;
 import ua.phonebook.model.User;
-import ua.phonebook.model.UserDTO;
 
 /**
  * Created by dexter on 16.04.16.
@@ -19,6 +20,8 @@ public class UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private ContactDao contactDao;
 
     public User registration(User user) throws RegistrationException {
         int idUser = userDao.saveUser(user);
@@ -72,16 +75,25 @@ public class UserService {
         return userDao.findUserById(idUser);
     }
 
-    public User changeUser(UserDTO userDTO){
+    public Contact changeUser(Contact target, String userId){
 
-        changeFirstName(userDTO.getId(), userDTO.getFirstName());
-        changeLastName(userDTO.getId(), userDTO.getLastName());
-        changeEmail(userDTO.getId(), userDTO.getEmail());
-        changeMobilePhone(userDTO.getId(), userDTO.getMobileTelephone());
-        changeHomePhone(userDTO.getId(), userDTO.getHomeTelephone());
-        changePass(userDTO.getId(), userDTO.getPass());
+        // if contact id the same user id .. in this case Contact obj is UserDTO
+        if(target.getId() == Integer.parseInt(userId)){
+            changeFirstName(target.getId(), target.getFirstName());
+            changeLastName(target.getId(), target.getLastName());
+            changeEmail(target.getId(), target.getEmail());
+            changeMobilePhone(target.getId(), target.getMobileTelephone());
+            changeHomePhone(target.getId(), target.getHomeTelephone());
+            changePass(target.getId(), target.getPass());
+            return new Contact(userDao.findUserByLogin(target.getLogin()));
+        }
 
-        return userDao.findUserByLogin(userDTO.getLogin());
+        contactDao.changeFirstName(target.getId(), target.getFirstName());
+        contactDao.changeLastName(target.getId(), target.getLastName());
+        contactDao.changeEmail(target.getId(), target.getEmail());
+        contactDao.changeMobileTelephone(target.getId(), target.getMobileTelephone());
+        contactDao.changeHomeTelephone(target.getId(), target.getHomeTelephone());
+        return contactDao.findContactByLogin(target.getLogin());
     }
 
     public void removeContact(String idContact){

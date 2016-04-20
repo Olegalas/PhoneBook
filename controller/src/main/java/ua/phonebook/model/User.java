@@ -29,12 +29,8 @@ public class User extends IdGenerate{
 
     private String homeTelephone;
 
-    @ManyToOne
-    @JoinColumn(name="friend_id", referencedColumnName = "id")
-    private User toPhoneBook;
-
-    @OneToMany(mappedBy = "toPhoneBook", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> phoneBook = new ArrayList<>();
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Contact> phoneBook = new ArrayList<>();
 
     public User() {
     }
@@ -95,19 +91,11 @@ public class User extends IdGenerate{
         this.homeTelephone = homeTelephone;
     }
 
-    public User getToPhoneBook() {
-        return toPhoneBook;
-    }
-
-    public void setToPhoneBook(User toPhoneBook) {
-        this.toPhoneBook = toPhoneBook;
-    }
-
-    public List<User> getPhoneBook() {
+    public List<Contact> getPhoneBook() {
         return phoneBook;
     }
 
-    public void setPhoneBook(List<User> phoneBook) {
+    public void setPhoneBook(List<Contact> phoneBook) {
         this.phoneBook = phoneBook;
     }
 
@@ -120,7 +108,6 @@ public class User extends IdGenerate{
                 ", email='" + email + '\'' +
                 ", mobileTelephone='" + mobileTelephone + '\'' +
                 ", homeTelephone='" + homeTelephone + '\'' +
-                ", toPhoneBook=" + toPhoneBook +
                 ", phoneBook=" + phoneBook +
                 '}';
     }

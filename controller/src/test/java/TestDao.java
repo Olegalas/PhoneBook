@@ -32,8 +32,8 @@ public class TestDao {
 
             Statement statement = connection.createStatement();
             statement.execute("drop table hibernate_sequence");
+            statement.execute("drop table contacts");
             statement.execute("drop table users");
-            statement.execute("drop table users_users");
             LOGGER.info("********DataBase was removed");
 
         } catch (SQLException e) {

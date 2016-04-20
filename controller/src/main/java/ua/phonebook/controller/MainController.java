@@ -5,16 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.model.User;
-import ua.phonebook.model.UserDTO;
+import ua.phonebook.model.Contact;
 import ua.phonebook.service.UserService;
 import ua.phonebook.utils.UserSecurity;
-
-import javax.annotation.Resource;
 
 /**
  * Created by dexter on 17.04.16.
@@ -95,7 +91,7 @@ public class MainController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String editPost(@RequestParam(value = "id", required = true) String id,
-                           @RequestParam(value = "personal", required = true) String personal,Model model) {
+                           @RequestParam(value = "targetId", required = true) String targetId,Model model) {
 
         LOGGER.debug("***Enter in editPost method");
 
@@ -103,10 +99,10 @@ public class MainController {
             return "/";
         }
 
-        UserDTO userDTO = new UserDTO();
-        model.addAttribute("personAttribute", userDTO);
+        Contact contact = new Contact(targetId);
+        model.addAttribute("personAttribute", contact);
         model.addAttribute("message", "Edit profile");
-        model.addAttribute("personal", personal);
+        model.addAttribute("personal", targetId);
 
         return "editpage";
     }
@@ -127,22 +123,23 @@ public class MainController {
 
     @RequestMapping(value = "/edituser", method = RequestMethod.POST)
     public String editUserPost(@RequestParam(value = "id", required = true) String id,
-                               @RequestParam(value = "personal", required = true) String personal,
-                               @ModelAttribute("personAttribute") UserDTO userDTO, Model model) {
+                               @RequestParam(value = "targetId", required = true) String targetId,
+                               @ModelAttribute("personAttribute") Contact contact, Model model) {
 
         LOGGER.debug("***Enter in editUserPost method");
 
         if(UserSecurity.userCheck(id, model)){
             return "/";
         }
-
-        service.changeUser(userDTO);
+        LOGGER.debug("***Received " + contact);
+        service.changeUser(contact, id);
+        LOGGER.debug("***After save " + contact);
         return "homepage";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String deletePost(@RequestParam(value = "id", required = true) String id,
-                           @RequestParam(value = "personal", required = true) String personal,Model model) {
+                           @RequestParam(value = "targetId", required = true) String targetId,Model model) {
 
         LOGGER.debug("***Enter in deletePost method");
 
@@ -150,7 +147,7 @@ public class MainController {
             return "/";
         }
 
-        service.removeContact(personal);
+        service.removeContact(targetId);
         return "homepage";
     }
 

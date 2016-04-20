@@ -1,16 +1,16 @@
 package ua.phonebook.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dexter on 19.04.16.
  */
-public class UserDTO {
+// sometime object of Contact class will be UserDTO
+@Entity
+@Table(name = "contacts")
+public class Contact extends IdGenerate{
 
-    private int id;
-
+    @Column(unique = true)
     private String login;
 
     private String pass;
@@ -25,12 +25,16 @@ public class UserDTO {
 
     private String homeTelephone;
 
-    public UserDTO() {
+    @ManyToOne
+    @JoinColumn(name="contact_id", referencedColumnName = "id")
+    private User userId;
+
+    public Contact() {
     }
 
-    public UserDTO(User user){
+    public Contact(User user){
 
-        id = user.getId();
+        setId(user.getId());
         login = user.getLogin();
         pass = user.getPass();
         firstName = user.getFirstName();
@@ -41,12 +45,8 @@ public class UserDTO {
 
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Contact(String idUser){
+        setId(Integer.parseInt(idUser));
     }
 
     public String getLogin() {
@@ -105,26 +105,18 @@ public class UserDTO {
         this.homeTelephone = homeTelephone;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserDTO userDTO = (UserDTO) o;
-
-        return id == userDTO.id;
-
+    public User getUserId() {
+        return userId;
     }
 
-    @Override
-    public int hashCode() {
-        return id;
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     @Override
     public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
+        return "Contact{" +
+                "id=" + getId() +
                 ", login='" + login + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

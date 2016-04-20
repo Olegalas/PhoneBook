@@ -14,7 +14,7 @@
 
 
 <h1><c:out value="${message}" /></h1>
-<c:url var="saveUrl" value="/edituser?id={user.id}&personal=${personal}"/>
+<c:url var="saveUrl" value="/edituser?id={user.id}&targetId=${targetId}"/>
 <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
     <table>
         <tr>
@@ -42,7 +42,7 @@
             <td><form:input path="homePhone" disabled="false"/></td>
         </tr>
 
-        <c:if test="${personal == user.id}">
+        <c:if test="${targetId == user.id}">
         <tr>
             <td><form:label path="oldPass">Enter old pass:</form:label></td>
             <td><form:input path="oldPass" disabled="false"/></td>
