@@ -42,8 +42,8 @@ public class TestDao {
         user.setFirstName("firstName");
         user.setLastName("lastName");
         user.setEmail("email");
-        user.setMobileTelephone("111");
-        user.setHomeTelephone("222");
+        user.setMobilePhone("111");
+        user.setHomePhone("222");
         user.setPass("pass");
 
         service.registration(user);
@@ -63,8 +63,8 @@ public class TestDao {
         user.setFirstName("firstName");
         user.setLastName("lastName");
         user.setEmail("email");
-        user.setMobileTelephone("111");
-        user.setHomeTelephone("222");
+        user.setMobilePhone("111");
+        user.setHomePhone("222");
         user.setPass("pass");
 
         service.registration(user);
@@ -88,8 +88,8 @@ public class TestDao {
         Assert.assertEquals(newFirstName, actualUser.getFirstName());
         Assert.assertEquals(newLastName, actualUser.getLastName());
         Assert.assertEquals(newEmail, actualUser.getEmail());
-        Assert.assertEquals(newMobilePhone, actualUser.getMobileTelephone());
-        Assert.assertEquals(newHomePhone, actualUser.getHomeTelephone());
+        Assert.assertEquals(newMobilePhone, actualUser.getMobilePhone());
+        Assert.assertEquals(newHomePhone, actualUser.getHomePhone());
         Assert.assertEquals(newPass, actualUser.getPass());
     }
 }

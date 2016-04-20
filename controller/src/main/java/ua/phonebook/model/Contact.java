@@ -40,8 +40,8 @@ public class Contact extends Login{
         firstName = user.getFirstName();
         lastName = user.getLastName();
         email = user.getEmail();
-        mobilePhone = user.getMobileTelephone();
-        homePhone = user.getHomeTelephone();
+        mobilePhone = user.getMobilePhone();
+        homePhone = user.getHomePhone();
 
     }
 

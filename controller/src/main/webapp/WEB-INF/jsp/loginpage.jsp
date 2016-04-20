@@ -19,7 +19,7 @@
 
         <tr>
             <td><form:label path="pass">Pass:</form:label></td>
-            <td><form:input path="pass" disabled="false"/></td>
+            <td><form:password path="pass" disabled="false"/></td>
         </tr>
 
     </table>

@@ -44,12 +44,12 @@
 
         <tr>
             <td><form:label path="pass">Pass:</form:label></td>
-            <td><form:input path="pass" disabled="false"/></td>
+            <td><form:password path="pass" disabled="false"/></td>
         </tr>
 
         <tr>
             <td><form:label path="rePass">RePass:</form:label></td>
-            <td><form:input path="rePass" disabled="false"/></td>
+            <td><form:password path="rePass" disabled="false"/></td>
         </tr>
 
     </table>

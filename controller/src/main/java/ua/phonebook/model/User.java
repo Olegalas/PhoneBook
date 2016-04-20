@@ -21,10 +21,10 @@ public class User extends Login{
     private String email;
 
     @Column(nullable = false)
-    private String mobileTelephone;
+    private String mobilePhone;
 
     @Column(nullable = false)
-    private String homeTelephone;
+    private String homePhone;
 
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contact> phoneBook = new ArrayList<>();
@@ -39,8 +39,8 @@ public class User extends Login{
         firstName = form.getFirstName();
         lastName = form.getLastName();
         email = form.getEmail();
-        mobileTelephone = form.getMobilePhone();
-        homeTelephone = form.getHomePhone();
+        mobilePhone = form.getMobilePhone();
+        homePhone = form.getHomePhone();
 
     }
 
@@ -68,22 +68,6 @@ public class User extends Login{
         this.email = email;
     }
 
-    public String getMobileTelephone() {
-        return mobileTelephone;
-    }
-
-    public void setMobileTelephone(String mobileTelephone) {
-        this.mobileTelephone = mobileTelephone;
-    }
-
-    public String getHomeTelephone() {
-        return homeTelephone;
-    }
-
-    public void setHomeTelephone(String homeTelephone) {
-        this.homeTelephone = homeTelephone;
-    }
-
     public List<Contact> getPhoneBook() {
         return phoneBook;
     }
@@ -92,14 +76,30 @@ public class User extends Login{
         this.phoneBook = phoneBook;
     }
 
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", mobileTelephone='" + mobileTelephone + '\'' +
-                ", homeTelephone='" + homeTelephone + '\'' +
+                ", mobileTelephone='" + mobilePhone + '\'' +
+                ", homeTelephone='" + homePhone + '\'' +
                 ", phoneBook=" + phoneBook +
                 '}';
     }

@@ -40,17 +40,17 @@
         <c:if test="${targetId == user.id}">
         <tr>
             <td><form:label path="oldPass">Enter old pass:</form:label></td>
-            <td><form:input path="oldPass" disabled="false"/></td>
+            <td><form:password path="oldPass" disabled="false"/></td>
         </tr>
 
         <tr>
             <td><form:label path="newPass">Enter new pass:</form:label></td>
-            <td><form:input path="newPass" disabled="false"/></td>
+            <td><form:password path="newPass" disabled="false"/></td>
         </tr>
 
         <tr>
             <td><form:label path="rePass">Enter new pass:</form:label></td>
-            <td><form:input path="rePass" disabled="false"/></td>
+            <td><form:password path="rePass" disabled="false"/></td>
         </tr>
         </c:if>
     </table>

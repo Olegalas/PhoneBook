@@ -41,7 +41,7 @@ public class MainController {
             User user = service.login(login.getLogin(), login.getPass());
             LOGGER.info("User passed .. user login - " + user.getLogin());
             model.addAttribute("user", user);
-            return "home?id=" + user.getId();
+            return "homepage";
         } catch (LoginException e) {
             LOGGER.error("***LoginException : ", e);
             model.addAttribute("message", e.getMessage());
