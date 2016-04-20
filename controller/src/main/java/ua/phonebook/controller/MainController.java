@@ -12,7 +12,6 @@ import ua.phonebook.model.RegistrationForm;
 import ua.phonebook.model.User;
 import ua.phonebook.model.Contact;
 import ua.phonebook.service.UserService;
-import ua.phonebook.utils.UserSecurity;
 
 @Controller
 public class MainController {
@@ -97,9 +96,6 @@ public class MainController {
 
         LOGGER.debug("***Enter in userHomePagePost method");
 
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
 
         return "homepage";
     }
@@ -110,14 +106,10 @@ public class MainController {
 
         LOGGER.debug("***Enter in editPost method");
 
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
 
         Contact contact = new Contact(targetId);
         model.addAttribute("personAttribute", contact);
-        model.addAttribute("message", "Edit profile");
-        model.addAttribute("personal", targetId);
+        model.addAttribute("targetId", targetId);
 
         return "editpage";
     }
@@ -126,10 +118,6 @@ public class MainController {
     public String contactsPost(@RequestParam(value = "id", required = true) String id, Model model) {
 
         LOGGER.debug("***Enter in contactsPost method");
-
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
 
 
         model.addAttribute("message", "All your contacts");
@@ -143,9 +131,6 @@ public class MainController {
 
         LOGGER.debug("***Enter in editUserPost method");
 
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
         LOGGER.debug("***Received " + contact);
         service.changeUser(contact, id);
         LOGGER.debug("***After save " + contact);
@@ -158,9 +143,6 @@ public class MainController {
 
         LOGGER.debug("***Enter in deletePost method");
 
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
 
         service.removeContact(targetId);
         return "homepage";
@@ -171,9 +153,6 @@ public class MainController {
 
         LOGGER.debug("***Enter in addContactPost method");
 
-        if(UserSecurity.userCheck(id, model)){
-            return "/";
-        }
 
         // TODO: 20.04.16 create userDTO... save it... and them edit
 

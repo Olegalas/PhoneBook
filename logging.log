@@ -116,3 +116,28 @@ ua.phonebook.exceptions.LoginException: Login or pass is not correct
 2016-04-21 00:08:46 DEBUG MainController:37 - ***Enter in loginPost method
 2016-04-21 00:08:46 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
 2016-04-21 00:08:46 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 00:31:39 DEBUG MainController:57 - ***Enter in login method
+2016-04-21 00:33:05 DEBUG MainController:37 - ***Enter in loginPost method
+2016-04-21 00:33:05 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 00:33:06 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 00:44:43 DEBUG MainController:57 - ***Enter in login method
+2016-04-21 00:44:55 DEBUG MainController:37 - ***Enter in loginPost method
+2016-04-21 00:44:55 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 00:44:56 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 00:53:03 DEBUG MainController:37 - ***Enter in loginPost method
+2016-04-21 00:53:03 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 00:53:04 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 01:06:10 DEBUG MainController:57 - ***Enter in login method
+2016-04-21 01:06:22 DEBUG MainController:37 - ***Enter in loginPost method
+2016-04-21 01:06:22 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 01:06:23 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 01:22:03 DEBUG MainController:28 - ***Enter in firstPage method
+2016-04-21 01:22:08 DEBUG MainController:37 - ***Enter in loginPost method
+2016-04-21 01:22:08 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 01:22:09 INFO  MainController:42 - User passed .. user login - wer
+2016-04-21 01:22:20 DEBUG MainController:111 - ***Enter in editPost method
+2016-04-21 01:48:59 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 01:49:06 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 01:49:06 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 01:49:07 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 01:49:10 DEBUG MainController:107 - ***Enter in editPost method

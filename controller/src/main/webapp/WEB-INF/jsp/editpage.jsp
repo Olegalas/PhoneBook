@@ -7,8 +7,7 @@
 </head>
 <body>
 
-
-<h1><c:out value="${message}" /></h1>
+<h1>Edit</h1>
 <c:url var="saveUrl" value="/edituser?id={user.id}&targetId=${targetId}"/>
 <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
     <table>
@@ -18,8 +17,8 @@
         </tr>
 
         <tr>
-            <td><form:label path="lustName">Enter last name:</form:label></td>
-            <td><form:input path="lustName" disabled="false"/></td>
+            <td><form:label path="lastName">Enter last name:</form:label></td>
+            <td><form:input path="lastName" disabled="false"/></td>
         </tr>
 
         <tr>

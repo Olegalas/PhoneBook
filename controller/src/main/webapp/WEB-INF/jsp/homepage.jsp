@@ -5,22 +5,52 @@
 <title>PhoneBook Home</title>
 </head>
 <body>
+    <table>
+        <tr>
+            <td><span>Login: </span>></td>
+            <td><c:out value="${user.login}" /></td>
+        </tr>
 
-    <c:out value="${user.login}" />
-    <c:out value="${user.firstName}" />
-    <c:out value="${user.lastName}" />
-    <c:out value="${user.email}" />
-    <c:out value="${user.mobilePhone}" />
-    <c:out value="${user.homePhone}" />
+        <tr>
+            <td><span>First Name: </span>></td>
+            <td><c:out value="${user.firstName}" /></td>
+        </tr>
 
-   <c:url var="editUrl" value="/edit?id=${user.id}&personal=${user.id}" />
-   <c:url var="showAllUrl" value="/contacts?id=${user.id}" />
-   <c:url var="createContactUrl" value="/add?id=${user.id}" />
-   <tr>
-     <td><a href="${editUrl}">Edit profile</a></td>
-     <td><a href="${showAllUrl}">Show all contacts</a></td>
-     <td><a href="${createContactUrl}">Create new contact</a></td>
-   </tr>
+        <tr>
+            <td><span>Last Name: </span>></td>
+            <td><c:out value="${user.lastName}" /></td>
+        </tr>
+
+        <tr>
+            <td><span>Email: </span>></td>
+            <td><c:out value="${user.email}" /></td>
+        </tr>
+
+        <tr>
+            <td><span>Mobile Telephone: </span>></td>
+            <td><c:out value="${user.mobilePhone}" /></td>
+        </tr>
+
+        <tr>
+            <td><span>Home Telephone: </span>></td>
+            <td><c:out value="${user.homePhone}" /></td>
+        </tr>
+    </table>
+
+    <c:url var="editUrl" value="/edit?id=${user.id}&targetId=${user.id}" />
+    <form:form method="POST" action="${editUrl}">
+        <input type="submit" value="Edit profile"/>
+    </form:form>
+
+    <c:url var="showAllUrl" value="/contacts?id=${user.id}" />
+    <form:form method="POST" action="${showAllUrl}">
+        <input type="submit" value="Show all contacts"/>
+    </form:form>
+
+    <c:url var="createContactUrl" value="/add?id=${user.id}" />
+    <form:form method="POST" action="${createContactUrl}">
+        <input type="submit" value="Create new contact"/>
+    </form:form>
 
 </body>
 </html>
