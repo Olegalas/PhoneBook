@@ -54,7 +54,7 @@
 
     </table>
 
-    <input type="submit" value="Sign in"/>
+    <input type="submit" value="Sign up"/>
 </form:form>
 
 <a href="/">go back</a>

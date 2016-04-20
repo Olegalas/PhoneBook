@@ -59,12 +59,12 @@ public class ContactDao {
     }
 
     public void changeMobileTelephone(int idContact, String number){
-        manager.createQuery("UPDATE Contact set mobileTelephone = :mobileTelephone WHERE id = :id").
+        manager.createQuery("UPDATE Contact set mobilePhone = :mobileTelephone WHERE id = :id").
                 setParameter("mobileTelephone", number).setParameter("id", idContact).executeUpdate();
     }
 
     public void changeHomeTelephone(int idContact, String number){
-        manager.createQuery("UPDATE Contact set homeTelephone = :homeTelephone WHERE id = :id").
+        manager.createQuery("UPDATE Contact set homePhone = :homeTelephone WHERE id = :id").
                 setParameter("homeTelephone", number).setParameter("id", idContact).executeUpdate();
     }
 

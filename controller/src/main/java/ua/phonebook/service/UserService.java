@@ -27,20 +27,25 @@ public class UserService {
         int idUser = userDao.saveUser(user);
 
         if(idUser == -1){
-            LOGGER.error("Login has already used");
+            LOGGER.error("***Login has already used");
             throw new RegistrationException("Login has already used");
         }
 
-        LOGGER.info("User was persisted");
+        LOGGER.info("***User was persisted");
         return user;
     }
 
     public User login(String login, String pass) throws LoginException {
-        User user = userDao.findUserByLogin(login);
-        if(user != null){
-            if(user.getPass().equals(pass)){
-                return user;
+        try{
+            User user = userDao.findUserByLogin(login);
+            if(user != null){
+                if(user.getPass().equals(pass)){
+                    return user;
+                }
+                LOGGER.warn("***incorrect pass");
             }
+        } catch (Exception ignore){/*NOP*/
+            LOGGER.error("***Exception ", ignore);
         }
         throw new LoginException("Login or pass is not correct");
     }
@@ -82,8 +87,8 @@ public class UserService {
             changeFirstName(target.getId(), target.getFirstName());
             changeLastName(target.getId(), target.getLastName());
             changeEmail(target.getId(), target.getEmail());
-            changeMobilePhone(target.getId(), target.getMobileTelephone());
-            changeHomePhone(target.getId(), target.getHomeTelephone());
+            changeMobilePhone(target.getId(), target.getMobilePhone());
+            changeHomePhone(target.getId(), target.getHomePhone());
             changePass(target.getId(), target.getPass());
             return new Contact(userDao.findUserByLogin(target.getLogin()));
         }
@@ -91,8 +96,8 @@ public class UserService {
         contactDao.changeFirstName(target.getId(), target.getFirstName());
         contactDao.changeLastName(target.getId(), target.getLastName());
         contactDao.changeEmail(target.getId(), target.getEmail());
-        contactDao.changeMobileTelephone(target.getId(), target.getMobileTelephone());
-        contactDao.changeHomeTelephone(target.getId(), target.getHomeTelephone());
+        contactDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
+        contactDao.changeHomeTelephone(target.getId(), target.getHomePhone());
         return contactDao.findContactByLogin(target.getLogin());
     }
 

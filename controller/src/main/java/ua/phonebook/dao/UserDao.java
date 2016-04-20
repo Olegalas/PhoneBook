@@ -41,7 +41,6 @@ public class UserDao {
     public User findUserByLogin(String login){
         return manager.createQuery("SELECT u FROM User u WHERE u.login = :login", User.class).
                 setParameter("login", login).getSingleResult();
-
     }
 
     public void changeFirstName(int idUser, String newFirstName){

@@ -3,8 +3,11 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.service.UserService;
@@ -24,21 +27,9 @@ public class TestDao {
     private static final Logger LOGGER = Logger.getLogger(TestDao.class);
     private ApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
 
-
     @After
     public void after() throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "root")) {
-
-            Statement statement = connection.createStatement();
-            statement.execute("drop table hibernate_sequence");
-            statement.execute("drop table contacts");
-            statement.execute("drop table users");
-            LOGGER.info("********DataBase was removed");
-
-        } catch (SQLException e) {
-            LOGGER.error("Error connection");
-        }
+        DropTables.drop();
     }
 
     @Test

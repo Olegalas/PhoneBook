@@ -8,22 +8,22 @@ import javax.persistence.*;
 // sometime object of Contact class will be UserDTO
 @Entity
 @Table(name = "contacts")
-public class Contact extends IdGenerate{
+public class Contact extends Login{
 
-    @Column(unique = true)
-    private String login;
-
-    private String pass;
-
+    @Column(nullable = false, length = 20)
     private String firstName;
 
+    @Column(nullable = false, length = 20)
     private String lastName;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
-    private String mobileTelephone;
+    @Column(nullable = false)
+    private String mobilePhone;
 
-    private String homeTelephone;
+    @Column(nullable = false)
+    private String homePhone;
 
     @ManyToOne
     @JoinColumn(name="contact_id", referencedColumnName = "id")
@@ -40,29 +40,13 @@ public class Contact extends IdGenerate{
         firstName = user.getFirstName();
         lastName = user.getLastName();
         email = user.getEmail();
-        mobileTelephone = user.getMobileTelephone();
-        homeTelephone = user.getHomeTelephone();
+        mobilePhone = user.getMobileTelephone();
+        homePhone = user.getHomeTelephone();
 
     }
 
     public Contact(String idUser){
         setId(Integer.parseInt(idUser));
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getFirstName() {
@@ -89,20 +73,20 @@ public class Contact extends IdGenerate{
         this.email = email;
     }
 
-    public String getMobileTelephone() {
-        return mobileTelephone;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public void setMobileTelephone(String mobileTelephone) {
-        this.mobileTelephone = mobileTelephone;
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
-    public String getHomeTelephone() {
-        return homeTelephone;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public void setHomeTelephone(String homeTelephone) {
-        this.homeTelephone = homeTelephone;
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
     }
 
     public User getUserId() {
@@ -116,13 +100,12 @@ public class Contact extends IdGenerate{
     @Override
     public String toString() {
         return "Contact{" +
-                "id=" + getId() +
-                ", login='" + login + '\'' +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", mobileTelephone='" + mobileTelephone + '\'' +
-                ", homeTelephone='" + homeTelephone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }

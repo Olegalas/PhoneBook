@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-
+<%@include file="include.jsp" %>
 
 <html>
 <head>
@@ -12,8 +7,9 @@
 </head>
 <body>
 
-<h1>Sign up</h1>
-<c:url var="saveUrl" value="/login?login=${personAttribute.login}&pass=${personAttribute.pass}"/>
+<h1>Sign in</h1>
+<c:out value="${message}" />
+<c:url var="saveUrl" value="/login"/>
 <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
     <table>
         <tr>
@@ -30,8 +26,8 @@
 
     <input type="submit" value="Sign in"/>
 </form:form>
-<c:url var="goToRegistration" value="/registration" />
-<a href="${goToRegistration}">go to registration</a>
+
+<a href="/registration">go to registration</a>
 
 </body>
 </html>

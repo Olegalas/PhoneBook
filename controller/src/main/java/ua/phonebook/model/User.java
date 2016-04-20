@@ -9,24 +9,21 @@ import java.util.List;
  */
 @Entity
 @Table(name = "users")
-public class User extends IdGenerate{
+public class User extends Login{
 
-    @Column(nullable = false, unique = true)
-    private String login;
-
-    @Column(nullable = false)
-    private String pass;
-
+    @Column(nullable = false, length = 20)
     private String firstName;
 
+    @Column(nullable = false, length = 20)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String mobileTelephone;
 
+    @Column(nullable = false)
     private String homeTelephone;
 
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -35,20 +32,16 @@ public class User extends IdGenerate{
     public User() {
     }
 
-    public String getLogin() {
-        return login;
-    }
+    public User(RegistrationForm form){
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+        login = form.login;
+        pass = form.pass;
+        firstName = form.getFirstName();
+        lastName = form.getLastName();
+        email = form.getEmail();
+        mobileTelephone = form.getMobilePhone();
+        homeTelephone = form.getHomePhone();
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
     }
 
     public String getFirstName() {
@@ -102,8 +95,7 @@ public class User extends IdGenerate{
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", mobileTelephone='" + mobileTelephone + '\'' +
