@@ -12,11 +12,7 @@ import ua.phonebook.model.Contact;
 import ua.phonebook.service.UserService;
 import ua.phonebook.utils.UserSecurity;
 
-/**
- * Created by dexter on 17.04.16.
- */
 @Controller
-@RequestMapping("/")
 public class MainController {
 
     private static final Logger LOGGER = Logger.getLogger(MainController.class);
@@ -24,13 +20,13 @@ public class MainController {
     @Autowired
     private UserService service;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String firstPage(Model model) {
 
         LOGGER.debug("***Enter in firstPage method");
 
         model.addAttribute("message", "Enter your login and pass");
-        return "loginpage";
+        return "test";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -47,8 +43,16 @@ public class MainController {
         } catch (LoginException e) {
             LOGGER.error("***LoginException : ", e);
             model.addAttribute("message", e.getMessage());
-            return "loginPage";
+            return "loginpage";
         }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+
+        LOGGER.debug("***Enter in login method");
+
+        return "loginpage";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)

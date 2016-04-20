@@ -13,7 +13,6 @@
 <body>
 
 <h1>Sign up</h1>
-<c:out value="${message}" />
 <c:url var="saveUrl" value="/login?login=${personAttribute.login}&pass=${personAttribute.pass}"/>
 <form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
     <table>

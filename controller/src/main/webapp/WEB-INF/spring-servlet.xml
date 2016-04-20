@@ -15,19 +15,15 @@
     <aop:aspectj-autoproxy />
     <context:annotation-config/>
 
-    <context:property-placeholder location="application.properties"/>
+    <context:property-placeholder location="classpath:application.properties"/>
 
-    <import resource="orm-spring-context.xml"/>
+    <import resource="classpath:orm-spring-context.xml"/>
     <!-- get properties from app.properties-->
     <context:component-scan base-package="ua.phonebook"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/jsp/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 </beans>

@@ -6,7 +6,26 @@
     <groupId>ua.phonebook</groupId>
     <artifactId>controller</artifactId>
     <version>0.1.0</version>
+    <packaging>war</packaging>
 
+    <!--<properties><packing.type>jar</packing.type></properties>-->
+
+    <profiles>
+        <profile>
+            <id>JarProfile</id>
+            <properties>
+                <packing.type>jar</packing.type>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>WarProfile</id>
+            <properties>
+                <packing.type>war</packing.type>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -134,6 +153,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

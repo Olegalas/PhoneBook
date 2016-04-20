@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-
+<%@include file="include.jsp" %>
 
 <html>
 <head>
@@ -61,8 +56,8 @@
 
     <input type="submit" value="Sign in"/>
 </form:form>
-<c:url var="goBack value="/" />
-<a href="${goBack}">go back</a>
+
+<a href="/">go back</a>
 
 </body>
 </html>
