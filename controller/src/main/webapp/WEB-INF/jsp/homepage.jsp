@@ -52,5 +52,10 @@
         <input type="submit" value="Create new contact"/>
     </form:form>
 
+    <c:url var="exitUrl" value="/" />
+    <form:form method="GET" action="${exitUrl}">
+        <input type="submit" value="Exit"/>
+    </form:form>
+
 </body>
 </html>

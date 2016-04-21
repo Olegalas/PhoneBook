@@ -57,7 +57,11 @@
     <input type="submit" value="Sign up"/>
 </form:form>
 
-<a href="/">go back</a>
+<c:url var="goBack" value="/" />
+<form:form method="GET" action="${goBack}">
+    <input type="submit" value="Go Back"/>
+</form:form>
+
 
 </body>
 </html>

@@ -9,27 +9,57 @@
 <body>
 
 
-<h1><c:out value="${message}" /></h1>
+<h1>Your contacts</h1>
 
 <c:forEach items="${user.phoneBook}" var="contact">
 
    <c:url var="editUrl" value="/edit?id=${user.id}&targetId=${contact.id}" />
    <c:url var="deleteUrl" value="/delete?id=${user.id}&targetId=${contact.id}" />
-
-  <tr>
-   <td><c:out value="${contact.firstName}" /></td>
-   <td><c:out value="${contact.lastName}" /></td>
-   <td><c:out value="${contact.email}" /></td>
-   <td><c:out value="${contact.mobilePhone}" /></td>
-   <td><c:out value="${contact.homePhone}" /></td>
-   <td><a href="${editUrl}">Edit</a></td>
-   <td><a href="${deleteUrl}">Delete</a></td>
-  </tr>
- </c:forEach>
-
+    <table>
+        <tr>
+            <td><span>Login :  </span>></td>
+            <td><c:out value="${contact.login}"/></td>
+        </tr>
+        <tr>
+            <td><span>First Name :  </span>></td>
+            <td><c:out value="${contact.firstName}"/></td>
+        </tr>
+        <tr>
+            <td><span>Last Name :  </span>></td>
+            <td><c:out value="${contact.lastName}"/></td>
+        </tr>
+        <tr>
+            <td><span>Email :  </span>></td>
+            <td><c:out value="${contact.email}"/></td>
+        </tr>
+        <tr>
+            <td><span>Mobile Telephone :  </span>></td>
+            <td><c:out value="${contact.mobilePhone}"/></td>
+        </tr>
+        <tr>
+            <td><span>Home Telephone :  </span>></td>
+            <td><c:out value="${contact.homePhone}"/></td>
+        </tr>
+        <tr>
+            <form:form method="POST" action="${editUrl}">
+                <input type="submit" value="Edit"/>
+            </form:form>
+        </tr>
+        <tr>
+            <form:form method="POST" action="${deleteUrl}">
+                <input type="submit" value="Delete"/>
+            </form:form>
+        </tr>
+        <tr>
+            <td><span>**************************</span></td>
+        </tr>
+    </table>
+</c:forEach>
 
 <c:url var="goBack" value="/home?id=${user.id}" />
-<a href="${goBack}">go back</a>
+<form:form method="POST" action="${goBack}">
+    <input type="submit" value="Go Back"/>
+</form:form>
 
 </body>
 </html>

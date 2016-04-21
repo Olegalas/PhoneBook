@@ -46,6 +46,11 @@ public class ContactDao {
 
     }
 
+    public void changeLogin(int idContact, String newLogin) {
+        manager.createQuery("UPDATE Contact set login = :login WHERE id = :id").
+                setParameter("login", newLogin).setParameter("id", idContact).executeUpdate();
+    }
+
     public void changeFirstName(int idContact, String newFirstName) {
         manager.createQuery("UPDATE Contact set firstName = :firstName WHERE id = :id").
                 setParameter("firstName", newFirstName).setParameter("id", idContact).executeUpdate();

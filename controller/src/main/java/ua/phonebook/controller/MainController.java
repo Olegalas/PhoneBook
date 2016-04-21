@@ -121,7 +121,7 @@ public class MainController {
         LOGGER.debug("***Enter in contactsPost method");
 
 
-        model.addAttribute("message", "All your contacts");
+        model.addAttribute("user", userService.findUser(Integer.parseInt(id)));
         return "contactspage";
     }
 
@@ -135,11 +135,11 @@ public class MainController {
         LOGGER.debug("***Received " + editModel);
 
         if(id.equals(targetId)){
-            userService.changeUser(editModel, targetId);
-            LOGGER.debug("***User profile was changed");
+            userService.editUser(editModel, targetId);
+            LOGGER.info("***User profile was changed");
         } else {
-            contactService.changeContact(editModel, targetId);
-            LOGGER.debug("***Contact was changed");
+            contactService.editContact(editModel, targetId);
+            LOGGER.info("***Contact was changed");
         }
 
         User user = userService.findUser(Integer.parseInt(id));
@@ -154,8 +154,8 @@ public class MainController {
 
         LOGGER.debug("***Enter in deletePost method");
 
-
-        userService.removeContact(targetId);
+        Contact contact = contactService.remove(targetId);
+        LOGGER.info("***Contact was removed : " + contact);
 
         User user = userService.findUser(Integer.parseInt(id));
         model.addAttribute("user", user);

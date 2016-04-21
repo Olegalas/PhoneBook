@@ -82,7 +82,7 @@ public class UserService {
         return userDao.findUserById(idUser);
     }
 
-    public User changeUser(EditModel target, String targetId){
+    public User editUser(EditModel target, String targetId){
 
         userDao.changeFirstName(target.getId(), target.getFirstName());
         LOGGER.debug("***First Name was changed");

@@ -21,17 +21,19 @@ public class ContactService {
     private ContactDao contactDao;
 
 
-    public Contact changeContact(EditModel target, String targetId) {
+    public Contact editContact(EditModel target, String targetId) {
 
-        contactDao.changeFirstName(target.getId(), target.getFirstName());
+        contactDao.changeLogin(Integer.parseInt(targetId), target.getLogin());
+        LOGGER.debug("***Login was changed");
+        contactDao.changeFirstName(Integer.parseInt(targetId), target.getFirstName());
         LOGGER.debug("***First Name was changed");
-        contactDao.changeLastName(target.getId(), target.getLastName());
+        contactDao.changeLastName(Integer.parseInt(targetId), target.getLastName());
         LOGGER.debug("***Last Name was changed");
-        contactDao.changeEmail(target.getId(), target.getEmail());
+        contactDao.changeEmail(Integer.parseInt(targetId), target.getEmail());
         LOGGER.debug("***Email was changed");
-        contactDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
+        contactDao.changeMobileTelephone(Integer.parseInt(targetId), target.getMobilePhone());
         LOGGER.debug("***Mobile Phone was changed");
-        contactDao.changeHomeTelephone(target.getId(), target.getHomePhone());
+        contactDao.changeHomeTelephone(Integer.parseInt(targetId), target.getHomePhone());
         LOGGER.debug("***Home Phone was changed");
 
         LOGGER.debug("***Profile has already changed");
@@ -45,5 +47,11 @@ public class ContactService {
             throw new LoginException("Login already has used");
         }
         LOGGER.info("***New contact has been saved");
+    }
+
+    public Contact remove(String tagetId){
+        Contact contact = contactDao.findContactById(Integer.parseInt(tagetId));
+        contactDao.remove(Integer.parseInt(tagetId));
+        return contact;
     }
 }

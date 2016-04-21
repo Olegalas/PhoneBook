@@ -27,7 +27,10 @@
     <input type="submit" value="Sign in"/>
 </form:form>
 
-<a href="/registration">go to registration</a>
+<c:url var="registratiomUrl" value="/registration" />
+<form:form method="GET" action="${registratiomUrl}">
+    <input type="submit" value="Go to registration"/>
+</form:form>
 
 </body>
 </html>
