@@ -26,16 +26,16 @@ public class User extends Login{
     @Column(nullable = false)
     private String homePhone;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Contact> phoneBook = new ArrayList<>();
 
     public User() {
     }
 
-    public User(RegistrationForm form){
+    public User(EditModel form){
 
         login = form.login;
-        pass = form.pass;
+        pass = form.getPass();
         firstName = form.getFirstName();
         lastName = form.getLastName();
         email = form.getEmail();

@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Edit</title>
+    <title>Add new contact</title>
 </head>
 <body>
 
-<h1>Edit</h1>
-<c:url var="saveUrl" value="/edituser?id=${userId}&targetId=${targetId}"/>
-<form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
+<h1>Create new contact</h1>
+<c:url var="saveUrl" value="/addcontact?id=${userId}"/>
+<form:form modelAttribute="newContact" method="POST" action="${saveUrl}">
     <table>
 
         <tr>
@@ -42,25 +42,9 @@
             <td><form:input path="homePhone" disabled="false"/></td>
         </tr>
 
-        <c:if test="${targetId == userId}">
-        <tr>
-            <td><form:label path="pass">Enter old pass:</form:label></td>
-            <td><form:password path="pass" disabled="false"/></td>
-        </tr>
-
-        <tr>
-            <td><form:label path="newPass">Enter new pass:</form:label></td>
-            <td><form:password path="newPass" disabled="false"/></td>
-        </tr>
-
-        <tr>
-            <td><form:label path="rePass">Enter new pass:</form:label></td>
-            <td><form:password path="rePass" disabled="false"/></td>
-        </tr>
-        </c:if>
     </table>
 
-    <input type="submit" value="Edit"/>
+    <input type="submit" value="Create"/>
 </form:form>
 
 <c:url var="goBack" value="/home?id=${userId}" />

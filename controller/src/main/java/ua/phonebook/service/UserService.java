@@ -3,11 +3,11 @@ package ua.phonebook.service;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.phonebook.dao.ContactDao;
 import ua.phonebook.dao.UserDao;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.model.Contact;
+import ua.phonebook.model.EditModel;
 import ua.phonebook.model.User;
 
 /**
@@ -20,11 +20,9 @@ public class UserService {
 
     @Autowired
     private UserDao userDao;
-    @Autowired
-    private ContactDao contactDao;
 
     public User registration(User user) throws RegistrationException {
-        int idUser = userDao.saveUser(user);
+        int idUser = userDao.save(user);
 
         if(idUser == -1){
             LOGGER.error("***Login has already used");
@@ -48,6 +46,10 @@ public class UserService {
             LOGGER.error("***Exception ", ignore);
         }
         throw new LoginException("Login or pass is not correct");
+    }
+
+    public User findUser(int id) {
+        return userDao.findUserById(id);
     }
 
     public User changeFirstName(int idUser, String newFirstName){
@@ -80,25 +82,25 @@ public class UserService {
         return userDao.findUserById(idUser);
     }
 
-    public Contact changeUser(Contact target, String userId){
+    public User changeUser(EditModel target, String targetId){
 
-        // if contact id the same user id .. in this case Contact obj is UserDTO
-        if(target.getId() == Integer.parseInt(userId)){
-            changeFirstName(target.getId(), target.getFirstName());
-            changeLastName(target.getId(), target.getLastName());
-            changeEmail(target.getId(), target.getEmail());
-            changeMobilePhone(target.getId(), target.getMobilePhone());
-            changeHomePhone(target.getId(), target.getHomePhone());
-            changePass(target.getId(), target.getPass());
-            return new Contact(userDao.findUserByLogin(target.getLogin()));
-        }
+        userDao.changeFirstName(target.getId(), target.getFirstName());
+        LOGGER.debug("***First Name was changed");
+        userDao.changeLastName(target.getId(), target.getLastName());
+        LOGGER.debug("***Last Name was changed");
+        userDao.changeEmail(target.getId(), target.getEmail());
+        LOGGER.debug("***Email was changed");
+        userDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
+        LOGGER.debug("***Mobile Phone was changed");
+        userDao.changeHomeTelephone(target.getId(), target.getHomePhone());
+        LOGGER.debug("***Home Phone was changed");
 
-        contactDao.changeFirstName(target.getId(), target.getFirstName());
-        contactDao.changeLastName(target.getId(), target.getLastName());
-        contactDao.changeEmail(target.getId(), target.getEmail());
-        contactDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
-        contactDao.changeHomeTelephone(target.getId(), target.getHomePhone());
-        return contactDao.findContactByLogin(target.getLogin());
+        changePass(target.getId(), target.getPass());
+        LOGGER.debug("***Pass was changed");
+
+        LOGGER.debug("***Profile has already changed");
+        return userDao.findUserById(Integer.parseInt(targetId));
+
     }
 
     public void removeContact(String idContact){

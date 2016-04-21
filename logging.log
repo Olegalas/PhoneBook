@@ -1,143 +1,81 @@
-2016-04-20 15:47:07 INFO  DropTables:23 - ********DataBase was removed
-2016-04-20 15:47:46 ERROR DropTables:26 - Error connection
-2016-04-21 00:00:49 DEBUG MainController:57 - ***Enter in login method
-2016-04-21 00:01:04 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:01:04 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:01:05 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 00:06:00 INFO  DropTables:23 - ********DataBase was removed
-2016-04-21 00:07:40 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:07:40 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:07:41 ERROR UserService:48 - ***Exception 
-javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.jpa.internal.QueryImpl.getSingleResult(QueryImpl.java:485)
-	at ua.phonebook.dao.UserDao.findUserByLogin(UserDao.java:43)
-	at ua.phonebook.dao.UserDao$$FastClassBySpringCGLIB$$e25a6552.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
-	at ua.phonebook.dao.UserDao$$EnhancerBySpringCGLIB$$96bd8ec6.findUserByLogin(<generated>)
-	at ua.phonebook.service.UserService.login(UserService.java:40)
-	at ua.phonebook.controller.MainController.loginPost(MainController.java:41)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:870)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-2016-04-21 00:07:41 ERROR MainController:46 - ***LoginException : 
-ua.phonebook.exceptions.LoginException: Login or pass is not correct
-	at ua.phonebook.service.UserService.login(UserService.java:50)
-	at ua.phonebook.controller.MainController.loginPost(MainController.java:41)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:870)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-2016-04-21 00:07:47 DEBUG MainController:67 - ***Enter in registrationGet method
-2016-04-21 00:08:29 DEBUG MainController:77 - ***Enter in registrationPost method
-2016-04-21 00:08:30 INFO  UserService:34 - ***User was persisted
-2016-04-21 00:08:30 INFO  MainController:83 - User has been saved
-2016-04-21 00:08:46 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:08:46 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:08:46 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 00:31:39 DEBUG MainController:57 - ***Enter in login method
-2016-04-21 00:33:05 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:33:05 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:33:06 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 00:44:43 DEBUG MainController:57 - ***Enter in login method
-2016-04-21 00:44:55 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:44:55 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:44:56 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 00:53:03 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 00:53:03 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 00:53:04 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 01:06:10 DEBUG MainController:57 - ***Enter in login method
-2016-04-21 01:06:22 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 01:06:22 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 01:06:23 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 01:22:03 DEBUG MainController:28 - ***Enter in firstPage method
-2016-04-21 01:22:08 DEBUG MainController:37 - ***Enter in loginPost method
-2016-04-21 01:22:08 DEBUG MainController:40 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 01:22:09 INFO  MainController:42 - User passed .. user login - wer
-2016-04-21 01:22:20 DEBUG MainController:111 - ***Enter in editPost method
-2016-04-21 01:48:59 DEBUG MainController:27 - ***Enter in firstPage method
-2016-04-21 01:49:06 DEBUG MainController:36 - ***Enter in loginPost method
-2016-04-21 01:49:06 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
-2016-04-21 01:49:07 INFO  MainController:41 - User passed .. user login - wer
-2016-04-21 01:49:10 DEBUG MainController:107 - ***Enter in editPost method
+2016-04-21 16:19:24 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 16:19:29 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 16:19:29 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 16:19:30 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 16:19:33 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 16:19:47 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 16:26:29 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 16:26:33 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 16:26:33 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 16:26:34 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 16:26:37 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 16:26:52 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 16:31:02 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 16:31:08 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 16:31:08 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 16:31:09 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 16:31:09 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 16:31:09 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 16:31:09 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 16:31:14 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 16:31:28 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 16:31:28 DEBUG MainController:187 - ***User : User{firstName='qq', lastName='qq', email='qq', mobileTelephone='qq', homeTelephone='qq', phoneBook=[]}
+2016-04-21 16:31:28 DEBUG MainController:188 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=User{firstName='qq', lastName='qq', email='qq', mobileTelephone='qq', homeTelephone='qq', phoneBook=[]}}
+2016-04-21 16:31:28 ERROR ContactDao:31 - ***Something wrong :javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: ua.phonebook.model.Contact
+2016-04-21 17:03:26 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 17:03:31 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 17:03:31 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 17:03:31 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 17:03:35 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 17:03:49 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 17:03:49 DEBUG MainController:184 - ***User : 1
+2016-04-21 17:03:49 DEBUG MainController:185 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='123', userId=null}
+2016-04-21 17:03:49 ERROR ContactDao:35 - ***Something wrong :javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: ua.phonebook.model.Contact
+2016-04-21 17:24:06 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 17:24:14 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 17:24:14 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 17:24:15 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 17:24:17 DEBUG MainController:107 - ***Enter in editPost method
+2016-04-21 17:24:20 DEBUG MainController:97 - ***Enter in userHomePagePost method
+2016-04-21 17:24:22 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 17:24:35 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 17:24:35 DEBUG MainController:184 - ***User : 1
+2016-04-21 17:24:35 DEBUG MainController:185 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=null}
+2016-04-21 17:24:35 ERROR ContactDao:37 - ***Something wrong :javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: ua.phonebook.model.Contact
+2016-04-21 17:31:25 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 17:31:29 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 17:31:29 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 17:31:30 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 17:31:33 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 17:31:55 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 17:31:55 DEBUG MainController:184 - ***User : 1
+2016-04-21 17:31:55 DEBUG MainController:185 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=null}
+2016-04-21 17:31:55 ERROR ContactDao:46 - ***Something wrong :javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: ua.phonebook.model.Contact
+2016-04-21 17:39:17 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 17:39:22 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 17:39:22 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 17:39:23 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 17:39:26 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 17:39:41 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 17:39:41 DEBUG MainController:184 - ***User : 1
+2016-04-21 17:39:41 DEBUG MainController:185 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=null}
+2016-04-21 17:39:41 ERROR ContactDao:48 - ***Something wrong :javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: ua.phonebook.model.Contact
+2016-04-21 18:09:03 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 18:09:10 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 18:09:10 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 18:09:11 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 18:09:17 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 18:09:45 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 18:09:45 DEBUG MainController:190 - ***User : 1
+2016-04-21 18:09:45 DEBUG MainController:193 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=null}
+2016-04-21 18:15:49 DEBUG MainController:27 - ***Enter in firstPage method
+2016-04-21 18:15:54 DEBUG MainController:36 - ***Enter in loginPost method
+2016-04-21 18:15:54 DEBUG MainController:39 - ***Query on enter.. Login{login='wer', pass='wer'}
+2016-04-21 18:15:55 INFO  MainController:41 - User passed .. user login - wer
+2016-04-21 18:16:00 DEBUG MainController:168 - ***Enter in addPost method
+2016-04-21 18:16:12 DEBUG MainController:181 - ***Enter in addContactPost method
+2016-04-21 18:16:12 DEBUG MainController:190 - ***User : 1
+2016-04-21 18:16:12 DEBUG MainController:193 - ***Want to save : Contact{login='Oleg', firstName='Oleg', lastName='Oleg', email='disposition@ukr.net', mobilePhone='23423', homePhone='23423', userId=null}
+2016-04-21 18:16:12 INFO  ContactService:47 - ***New contact has been saved
+2016-04-21 18:16:12 INFO  MainController:196 - ***New contact was saved
+2016-04-21 18:17:33 DEBUG MainController:121 - ***Enter in contactsPost method

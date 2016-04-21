@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.phonebook.model.Login;
 import ua.phonebook.model.User;
 
 import javax.persistence.EntityManager;
@@ -24,7 +25,7 @@ public class UserDao {
     public UserDao() {
     }
 
-    public int saveUser(User user){
+    public int save(Login user){
         try {
             manager.persist(user);
         } catch (Exception e){
@@ -59,12 +60,12 @@ public class UserDao {
     }
 
     public void changeMobileTelephone(int idUser, String number){
-        manager.createQuery("UPDATE User set mobileTelephone = :mobileTelephone WHERE id = :id").
+        manager.createQuery("UPDATE User set mobilePhone = :mobileTelephone WHERE id = :id").
                 setParameter("mobileTelephone", number).setParameter("id", idUser).executeUpdate();
     }
 
     public void changeHomeTelephone(int idUser, String number){
-        manager.createQuery("UPDATE User set homeTelephone = :homeTelephone WHERE id = :id").
+        manager.createQuery("UPDATE User set homePhone = :homeTelephone WHERE id = :id").
                 setParameter("homeTelephone", number).setParameter("id", idUser).executeUpdate();
     }
 

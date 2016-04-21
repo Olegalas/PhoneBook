@@ -1,14 +1,28 @@
 package ua.phonebook.model;
 
 /**
- * Created by dexter on 20.04.16.
+ * Created by dexter on 21.04.16.
  */
-public class RegistrationForm extends Contact {
+// UserDTO
+public class EditModel extends Contact {
 
+    private String pass;
     private String newPass;
     private String rePass;
 
-    public RegistrationForm() {
+    public EditModel() {
+    }
+
+    public EditModel(String id){
+        setId(Integer.parseInt(id));
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getNewPass() {
@@ -27,11 +41,4 @@ public class RegistrationForm extends Contact {
         this.rePass = rePass;
     }
 
-    @Override
-    public String toString() {
-        return "RegistrationForm{" +
-                "newPass='" + newPass + '\'' +
-                ", rePass='" + rePass + '\'' +
-                '}';
-    }
 }

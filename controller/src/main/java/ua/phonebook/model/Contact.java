@@ -5,10 +5,12 @@ import javax.persistence.*;
 /**
  * Created by dexter on 19.04.16.
  */
-// sometime object of Contact class will be UserDTO
 @Entity
 @Table(name = "contacts")
-public class Contact extends Login{
+public class Contact extends IdGenerate{
+
+    @Column(nullable = false, unique = true, length = 20)
+    protected String login;
 
     @Column(nullable = false, length = 20)
     private String firstName;
@@ -32,21 +34,24 @@ public class Contact extends Login{
     public Contact() {
     }
 
-    public Contact(User user){
+    public Contact(Contact contact, User user){
 
-        setId(user.getId());
-        login = user.getLogin();
-        pass = user.getPass();
-        firstName = user.getFirstName();
-        lastName = user.getLastName();
-        email = user.getEmail();
-        mobilePhone = user.getMobilePhone();
-        homePhone = user.getHomePhone();
+        login = contact.login;
+        firstName = contact.firstName;
+        lastName = contact.lastName;
+        email = contact.email;
+        mobilePhone = contact.mobilePhone;
+        homePhone = contact.mobilePhone;
+        userId = user;
 
     }
 
-    public Contact(String idUser){
-        setId(Integer.parseInt(idUser));
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstName() {
@@ -98,9 +103,29 @@ public class Contact extends Login{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Contact contact = (Contact) o;
+
+        return login != null ? login.equals(contact.login) : contact.login == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Contact{" +
-                "firstName='" + firstName + '\'' +
+                "login='" + login + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", mobilePhone='" + mobilePhone + '\'' +
