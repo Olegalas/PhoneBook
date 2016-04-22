@@ -1,6 +1,10 @@
 package ua.phonebook.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,18 +15,26 @@ import java.util.List;
 @Table(name = "users")
 public class User extends Login{
 
+    @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
+    @NotEmpty(message = "Please enter your first name")
     @Column(nullable = false, length = 20)
     private String firstName;
 
+    @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
+    @NotEmpty(message = "Please enter your last name")
     @Column(nullable = false, length = 20)
     private String lastName;
 
     @Column(nullable = false, unique = true)
+    @Email(message = "Please enter your email correctly")
+    @NotEmpty(message = "Please enter your email")
     private String email;
 
+    @NotEmpty(message = "Please enter your number of mobile telephone")
     @Column(nullable = false)
     private String mobilePhone;
 
+    @NotEmpty(message = "Please enter your number of home telephone")
     @Column(nullable = false)
     private String homePhone;
 

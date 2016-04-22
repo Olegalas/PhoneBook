@@ -4,73 +4,58 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Registration</title>
-    <style>
-        .error {
-            color: red; font-weight: bold;
-        }
-    </style>
 </head>
 <body>
 
 <h1>Sign up</h1>
 <c:out value="${message}" />
-
-<table>
-    <form:form commandName="personAttribute" method="POST" action="/registration">
-
+<c:url var="saveUrl" value="/registration"/>
+<form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
+    <table>
         <tr>
             <td><form:label path="login">Login:</form:label></td>
             <td><form:input path="login" disabled="false"/></td>
-            <td><form:errors path="login" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td><form:label path="firstName">FirstName:</form:label></td>
             <td><form:input path="firstName" disabled="false"/></td>
-            <td><form:errors path="firstName" cssClass="error"/></td>
-        </tr>
-
-        <tr>
-            <td><form:label path="lastName">LastName:</form:label></td>
-            <td><form:input path="lastName" disabled="false"/></td>
-            <td><form:errors path="lastName" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td><form:label path="email">Email:</form:label></td>
             <td><form:input path="email" disabled="false"/></td>
-            <td><form:errors path="email" cssClass="error"/></td>
+        </tr>
+
+        <tr>
+            <td><form:label path="lastName">LastName:</form:label></td>
+            <td><form:input path="lastName" disabled="false"/></td>
         </tr>
 
         <tr>
             <td><form:label path="mobilePhone">MobilePhone:</form:label></td>
             <td><form:input path="mobilePhone" disabled="false"/></td>
-            <td><form:errors path="mobilePhone" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td><form:label path="homePhone">HomePhone:</form:label></td>
             <td><form:input path="homePhone" disabled="false"/></td>
-            <td><form:errors path="homePhone" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td><form:label path="pass">Pass:</form:label></td>
             <td><form:password path="pass" disabled="false"/></td>
-            <td><form:errors path="pass" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td><form:label path="rePass">RePass:</form:label></td>
             <td><form:password path="rePass" disabled="false"/></td>
-            <td><form:errors path="rePass" cssClass="error"/></td>
         </tr>
 
-        <tr>
-            <td> <input type="submit" value="Sign up"/></td>
-        </tr>
-    </form:form>
-</table>
+    </table>
+
+    <input type="submit" value="Sign up"/>
+</form:form>
 
 <c:url var="goBack" value="/" />
 <form:form method="GET" action="${goBack}">

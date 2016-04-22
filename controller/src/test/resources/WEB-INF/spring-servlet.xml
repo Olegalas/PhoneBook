@@ -7,15 +7,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd ">
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 
     <tx:annotation-driven/>
     <!--FOR ASPECT ANNOTATIONS-->
     <aop:aspectj-autoproxy />
-
     <context:annotation-config/>
-    <!--<mvc:annotation-driven />-->
 
     <context:property-placeholder location="classpath:application.properties"/>
 
@@ -27,11 +25,5 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
-    <!--<bean id="messageSource"-->
-          <!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-
-        <!--<property name="basename" value="/WEB-INF/messages" />-->
-    <!--</bean>-->
 
 </beans>

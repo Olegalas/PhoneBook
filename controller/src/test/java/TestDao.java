@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.service.UserService;

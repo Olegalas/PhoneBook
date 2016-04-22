@@ -98,9 +98,8 @@ public class UserService {
         changePass(target.getId(), target.getPass());
         LOGGER.debug("***Pass was changed");
 
-        LOGGER.debug("***Profile has already changed");
+        LOGGER.debug("***User profile has already changed");
         return userDao.findUserById(Integer.parseInt(targetId));
-
     }
 
     public void removeContact(String idContact){

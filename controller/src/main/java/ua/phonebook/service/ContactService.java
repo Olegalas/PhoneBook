@@ -36,7 +36,7 @@ public class ContactService {
         contactDao.changeHomeTelephone(Integer.parseInt(targetId), target.getHomePhone());
         LOGGER.debug("***Home Phone was changed");
 
-        LOGGER.debug("***Profile has already changed");
+        LOGGER.debug("***Contact profile has already changed");
 
         return contactDao.findContactById(Integer.parseInt(targetId));
     }
