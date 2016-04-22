@@ -5,13 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.phonebook.dao.ContactDao;
 import ua.phonebook.exceptions.EditException;
-import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.model.Contact;
 import ua.phonebook.model.EditModel;
-import ua.phonebook.model.User;
-
-import javax.servlet.Registration;
 
 /**
  * Created by dexter on 21.04.16.
@@ -65,6 +61,13 @@ public class ContactService {
         Contact contact = contactDao.findContactById(Integer.parseInt(targetId));
         LOGGER.debug("This Contact will be permanently removed : " + contact);
         contactDao.remove(Integer.parseInt(targetId));
+        return contact;
+    }
+
+    public Contact remove(int targetId){
+        Contact contact = contactDao.findContactById(targetId);
+        LOGGER.debug("This Contact will be permanently removed : " + contact);
+        contactDao.remove(targetId);
         return contact;
     }
 }

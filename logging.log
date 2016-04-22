@@ -1652,3 +1652,4 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 2016-04-22 21:36:02 INFO  MainController:203 - ***Contact was removed : Contact{login='eeeeeeee', firstName='eeee', lastName='eeee', email='eeeee@rty.edt', mobilePhone='eeeeee', homePhone='eeeeee'}
 2016-04-22 21:36:05 DEBUG MainController:144 - ***Enter in contactsPost method
 2016-04-22 21:36:07 DEBUG MainController:117 - ***Enter in userHomePagePost method
+2016-04-22 23:11:37 ERROR DropTables:26 - Error connection

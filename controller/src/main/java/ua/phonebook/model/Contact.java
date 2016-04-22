@@ -51,6 +51,7 @@ public class Contact extends IdGenerate{
 
     public Contact(Contact contact, User user){
 
+        setId(contact.getId());
         login = contact.login;
         firstName = contact.firstName;
         lastName = contact.lastName;

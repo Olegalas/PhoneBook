@@ -14,16 +14,9 @@
     <!--FOR ASPECT ANNOTATIONS-->
     <aop:aspectj-autoproxy />
     <context:annotation-config/>
-
-    <context:property-placeholder location="classpath:application.properties"/>
-
-    <import resource="classpath:orm-spring-context.xml"/>
+    <context:component-scan base-package="ua.phonebook.dao"/>
+    <context:component-scan base-package="ua.phonebook.service"/>
     <!-- get properties from app.properties-->
-    <context:component-scan base-package="ua.phonebook"/>
-
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    <import resource="orm-spring-context.xml"/>
 
 </beans>

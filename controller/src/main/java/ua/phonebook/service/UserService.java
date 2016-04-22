@@ -108,7 +108,11 @@ public class UserService {
         return userDao.findUserById(Integer.parseInt(targetId));
     }
 
-    public void removeContact(String idContact){
-        userDao.remove(Integer.parseInt(idContact));
+    public User removeUser(String idContact){
+        return userDao.remove(Integer.parseInt(idContact));
+    }
+
+    public User removeUser(int idContact){
+        return userDao.remove(idContact);
     }
 }
