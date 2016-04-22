@@ -11,12 +11,9 @@ import javax.validation.constraints.Size;
 public class EditModel extends Contact {
 
     @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
-    @NotEmpty(message = "Please enter your pass")
     private String pass;
     @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
-    @NotEmpty(message = "Please enter your new pass")
     private String newPass;
-    @NotEmpty(message = "Please enter your pass one more time")
     private String rePass;
 
     public EditModel() {

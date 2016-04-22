@@ -58,6 +58,7 @@
             <td><form:label path="pass">Pass:</form:label></td>
             <td><form:password path="pass" disabled="false"/></td>
             <td><form:errors path="pass" cssClass="error"/></td>
+            <td><span class="error"><c:out value="${passMessage}"/></span></td>
         </tr>
 
         <tr>

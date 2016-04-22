@@ -25,14 +25,8 @@ public class UserDao {
     public UserDao() {
     }
 
-    public int save(Login user){
-        try {
-            manager.persist(user);
-        } catch (Exception e){
-            LOGGER.error(e.getMessage());
-            return -1;
-        }
-        return user.getId();
+    public void save(Login user){
+        manager.persist(user);
     }
 
     public User findUserById(int idUser){

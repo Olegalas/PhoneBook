@@ -145,7 +145,6 @@ public class Contact extends IdGenerate{
                 ", email='" + email + '\'' +
                 ", mobilePhone='" + mobilePhone + '\'' +
                 ", homePhone='" + homePhone + '\'' +
-                ", userId=" + userId +
                 '}';
     }
 }

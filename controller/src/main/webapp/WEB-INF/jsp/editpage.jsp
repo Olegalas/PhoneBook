@@ -58,12 +58,13 @@
             <tr>
                 <td><form:label path="pass">Enter old pass:</form:label></td>
                 <td><form:password path="pass" disabled="false"/></td>
+                <td><span class="error"><c:out value="${oldPassMessage}"/></span></td>
             </tr>
 
             <tr>
                 <td><form:label path="newPass">Enter new pass:</form:label></td>
                 <td><form:password path="newPass" disabled="false"/></td>
-                <td><form:errors path="newPass" cssClass="error"/></td>
+                <td><span class="error"><c:out value="${newPassMessage}"/></span></td>
             </tr>
 
             <tr>

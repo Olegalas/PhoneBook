@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.phonebook.dao.UserDao;
+import ua.phonebook.exceptions.EditException;
 import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.model.Contact;
@@ -22,11 +23,11 @@ public class UserService {
     private UserDao userDao;
 
     public User registration(User user) throws RegistrationException {
-        int idUser = userDao.save(user);
-
-        if(idUser == -1){
-            LOGGER.error("***Login has already used");
-            throw new RegistrationException("Login has already used");
+        try{
+            userDao.save(user);
+        }catch (Exception e){
+            LOGGER.error("***Exception during persistence user : ", e);
+            throw new RegistrationException("Login or email has already used");
         }
 
         LOGGER.info("***User was persisted");
@@ -82,21 +83,26 @@ public class UserService {
         return userDao.findUserById(idUser);
     }
 
-    public User editUser(EditModel target, String targetId){
+    public User editUser(EditModel target, String targetId) throws EditException {
 
-        userDao.changeFirstName(target.getId(), target.getFirstName());
-        LOGGER.debug("***First Name was changed");
-        userDao.changeLastName(target.getId(), target.getLastName());
-        LOGGER.debug("***Last Name was changed");
-        userDao.changeEmail(target.getId(), target.getEmail());
-        LOGGER.debug("***Email was changed");
-        userDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
-        LOGGER.debug("***Mobile Phone was changed");
-        userDao.changeHomeTelephone(target.getId(), target.getHomePhone());
-        LOGGER.debug("***Home Phone was changed");
+        try{
+            userDao.changeFirstName(target.getId(), target.getFirstName());
+            LOGGER.debug("***First Name was changed");
+            userDao.changeLastName(target.getId(), target.getLastName());
+            LOGGER.debug("***Last Name was changed");
+            userDao.changeEmail(target.getId(), target.getEmail());
+            LOGGER.debug("***Email was changed");
+            userDao.changeMobileTelephone(target.getId(), target.getMobilePhone());
+            LOGGER.debug("***Mobile Phone was changed");
+            userDao.changeHomeTelephone(target.getId(), target.getHomePhone());
+            LOGGER.debug("***Home Phone was changed");
+            changePass(target.getId(), target.getPass());
+            LOGGER.debug("***Pass was changed");
 
-        changePass(target.getId(), target.getPass());
-        LOGGER.debug("***Pass was changed");
+        }catch (Exception e){
+            LOGGER.error("Exception during edit user profile : ", e);
+            throw new EditException("Login or email has already used");
+        }
 
         LOGGER.debug("***User profile has already changed");
         return userDao.findUserById(Integer.parseInt(targetId));

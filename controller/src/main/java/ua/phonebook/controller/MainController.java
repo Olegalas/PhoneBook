@@ -3,12 +3,18 @@ package ua.phonebook.controller;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import ua.phonebook.exceptions.EditException;
 import ua.phonebook.exceptions.LoginException;
 import ua.phonebook.exceptions.RegistrationException;
-import ua.phonebook.model.*;
+import ua.phonebook.model.Contact;
+import ua.phonebook.model.EditModel;
+import ua.phonebook.model.Login;
+import ua.phonebook.model.User;
 import ua.phonebook.service.ContactService;
 import ua.phonebook.service.UserService;
 
@@ -79,6 +85,12 @@ public class MainController {
 
         if(result.hasErrors()) {
             LOGGER.debug("***Incorrect registration..return to registration page");
+            return "registrationpage";
+        }
+
+        if(form.getPass().isEmpty() || !form.getPass().equals(form.getRePass())){
+            LOGGER.debug("***Different passwords.. return to registration page");
+            model.put("passMessage", "Your passwords are different");
             return "registrationpage";
         }
 
@@ -153,14 +165,26 @@ public class MainController {
             return "editpage";
         }
 
+        try{
+            if (id.equals(targetId)) {
 
-        if (id.equals(targetId)) {
-            userService.editUser(editModel, targetId);
-            LOGGER.info("***User \'"+ id +"\' profile was changed");
-        } else {
-            contactService.editContact(editModel, targetId);
-            LOGGER.info("***Contact was changed");
+                if(checkPass(editModel, id, model, targetId)){
+                    return "editpage";
+                }
+
+                userService.editUser(editModel, targetId);
+                LOGGER.info("***User \'"+ id +"\' profile was changed");
+            } else {
+                contactService.editContact(editModel, targetId);
+                LOGGER.info("***Contact was changed");
+            }
+        } catch (EditException e){
+            model.put("message", e.getMessage());
+            model.put("userId", id);
+            model.put("targetId", targetId);
+            return "editpage";
         }
+
 
         User user = userService.findUser(Integer.parseInt(id));
         model.put("user", user);
@@ -224,16 +248,37 @@ public class MainController {
             contactService.saveContact(newContact);
             LOGGER.info("***New contact was saved");
 
-        } catch (LoginException e) {
+        } catch (RegistrationException e) {
 
             LOGGER.error("***Exception during save contact : ", e);
-
+            model.put("message", e.getMessage());
+            model.put("userId", id);
             return "add";
         }
 
         User user = userService.findUser(Integer.parseInt(id));
         model.put("user", user);
         return "homepage";
+    }
+
+    private boolean checkPass(EditModel editModel, String id, Map<String, Object> model, String targetId) {
+
+        User user = userService.findUser(Integer.parseInt(id));
+        if(!user.getPass().equals(editModel.getPass())){
+            model.put("oldPassMessage", "Passwords must be the same");
+            model.put("userId", id);
+            model.put("targetId", targetId);
+            return true;
+        }
+
+        if(!editModel.getNewPass().equals(editModel.getRePass())){
+            LOGGER.debug("***Different passwords.. return to edit page");
+            model.put("newPassMessage", "Your passwords are different");
+            model.put("userId", id);
+            model.put("targetId", targetId);
+            return true;
+        }
+        return false;
     }
 
 }

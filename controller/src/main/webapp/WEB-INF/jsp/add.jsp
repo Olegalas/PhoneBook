@@ -14,7 +14,7 @@
 <body>
 
 <h1>Create new contact</h1>
-
+<c:out value="${message}"/>
 <table>
     <form:form commandName="newContact" method="POST" action="/addcontact?id=${userId}">
         <tr>

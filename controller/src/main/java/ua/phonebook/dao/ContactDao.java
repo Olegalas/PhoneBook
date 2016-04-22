@@ -26,14 +26,8 @@ public class ContactDao {
     public ContactDao() {
     }
 
-    public int save(Contact contact) {
-        try {
-            manager.persist(contact);
-        } catch (Exception e) {
-            LOGGER.error("***Something wrong :" + e);
-            return -1;
-        }
-        return contact.getId();
+    public void save(Contact contact) {
+        manager.persist(contact);
     }
 
     public Contact findContactById(int idContact) {
@@ -81,9 +75,7 @@ public class ContactDao {
                 setParameter("pass", pass).setParameter("id", idContact).executeUpdate();
     }
 
-    public Contact remove(int idContact) {
-        Contact contact = manager.find(Contact.class, idContact);
+    public void remove(int idContact) {
         manager.createQuery("DELETE FROM Contact WHERE id = :id").setParameter("id", idContact).executeUpdate();
-        return contact;
     }
 }
