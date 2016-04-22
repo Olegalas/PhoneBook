@@ -2,7 +2,6 @@ package ua.phonebook.dao;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.phonebook.model.Login;
 import ua.phonebook.model.User;

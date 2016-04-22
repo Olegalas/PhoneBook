@@ -14,16 +14,19 @@ import javax.validation.constraints.Size;
 @Table(name = "contacts")
 public class Contact extends IdGenerate{
 
+    @Pattern(regexp = "[a-zA-Z0-9]*", message = "Only latins symbols and numbers")
     @Column(nullable = false, unique = true, length = 20)
     @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
     @NotEmpty(message = "Please enter your login")
     protected String login;
 
+    @Pattern(regexp = "[a-zA-Z0-9]*", message = "Only latins symbols and numbers")
     @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
     @NotEmpty(message = "Please enter your first name")
     @Column(nullable = false, length = 20)
     private String firstName;
 
+    @Pattern(regexp = "[a-zA-Z0-9]*", message = "Only latins symbols and numbers")
     @Size(min = 4, max = 20, message = "minimum 4 symbols, maximum 20 symbols")
     @NotEmpty(message = "Please enter your last name")
     @Column(nullable = false, length = 20)
@@ -34,10 +37,12 @@ public class Contact extends IdGenerate{
     @NotEmpty(message = "Please enter your email")
     private String email;
 
+    @Pattern(regexp = "\\+\\d{2}\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}", message = "Format +38(0__)___-__-__")
     @NotEmpty(message = "Please enter your number of mobile telephone")
     @Column(nullable = false)
     private String mobilePhone;
 
+    @Pattern(regexp = "\\+\\d{2}\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}", message = "Format +38(0__)___-__-__")
     @NotEmpty(message = "Please enter your number of home telephone")
     @Column(nullable = false)
     private String homePhone;

@@ -1,12 +1,9 @@
 package ua.phonebook.dao;
 
 import org.apache.log4j.Logger;
-import org.aspectj.org.eclipse.jdt.internal.compiler.codegen.IntegerCache;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ua.phonebook.model.Contact;
-import ua.phonebook.model.Login;
-import ua.phonebook.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

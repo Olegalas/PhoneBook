@@ -1653,3 +1653,50 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 2016-04-22 21:36:05 DEBUG MainController:144 - ***Enter in contactsPost method
 2016-04-22 21:36:07 DEBUG MainController:117 - ***Enter in userHomePagePost method
 2016-04-22 23:11:37 ERROR DropTables:26 - Error connection
+2016-04-23 00:59:43 DEBUG MainController:37 - ***Enter in firstPage method
+2016-04-23 00:59:52 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 00:59:56 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 00:59:56 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:00:46 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:00:46 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:06:54 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:11:56 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:19:48 DEBUG MainController:37 - ***Enter in firstPage method
+2016-04-23 01:19:56 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:21:40 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:21:41 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:22:42 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:22:42 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:22:52 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:22:52 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:23:05 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:23:05 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:35:19 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:35:59 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:35:59 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:41:45 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:41:45 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:41:47 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:41:47 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:42:01 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:42:01 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:46:22 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:46:55 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:46:55 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:49:35 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:50:17 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:50:17 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:53:32 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:54:24 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:54:24 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:54:38 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:54:38 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:54:52 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:54:52 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:55:19 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:55:19 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:57:21 DEBUG MainController:74 - ***Enter in registrationGet method
+2016-04-23 01:57:53 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:57:53 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-23 01:58:05 DEBUG MainController:84 - ***Enter in registrationPost method
+2016-04-23 01:58:05 DEBUG MainController:87 - ***Incorrect registration..return to registration page

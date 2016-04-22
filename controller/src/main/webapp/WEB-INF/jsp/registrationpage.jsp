@@ -43,19 +43,19 @@
         </tr>
 
         <tr>
-            <td><form:label path="mobilePhone">MobilePhone:</form:label></td>
-            <td><form:input path="mobilePhone" disabled="false"/></td>
+            <td><form:label path="mobilePhone" title="+38(0__)___-__-__">Mobile telephone +38(0__)___-__-__ :</form:label></td>
+            <td><form:input path="mobilePhone" disabled="false" title="+38(0__)___-__-__"/></td>
             <td><form:errors path="mobilePhone" cssClass="error"/></td>
         </tr>
 
         <tr>
-            <td><form:label path="homePhone">HomePhone:</form:label></td>
-            <td><form:input path="homePhone" disabled="false"/></td>
+            <td><form:label path="homePhone" title="+38(0__)___-__-__">Home telephone +38(0__)___-__-__ :</form:label></td>
+            <td><form:input path="homePhone" disabled="false" title="+38(0__)___-__-__" autocomplete="true" alt="+38(0__)___-__-__"/></td>
             <td><form:errors path="homePhone" cssClass="error"/></td>
         </tr>
 
         <tr>
-            <td><form:label path="pass">Pass:</form:label></td>
+            <td><form:label path="pass" >Pass:</form:label></td>
             <td><form:password path="pass" disabled="false"/></td>
             <td><form:errors path="pass" cssClass="error"/></td>
             <td><span class="error"><c:out value="${passMessage}"/></span></td>

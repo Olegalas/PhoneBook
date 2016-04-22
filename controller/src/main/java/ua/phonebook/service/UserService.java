@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.phonebook.dao.UserDao;
 import ua.phonebook.exceptions.EditException;
-import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.exceptions.LoginException;
-import ua.phonebook.model.Contact;
+import ua.phonebook.exceptions.RegistrationException;
 import ua.phonebook.model.EditModel;
 import ua.phonebook.model.User;
 
