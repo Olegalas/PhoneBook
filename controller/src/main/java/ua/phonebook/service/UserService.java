@@ -95,7 +95,7 @@ public class UserService {
             LOGGER.debug("***Mobile Phone was changed");
             userDao.changeHomeTelephone(target.getId(), target.getHomePhone());
             LOGGER.debug("***Home Phone was changed");
-            changePass(target.getId(), target.getPass());
+            changePass(target.getId(), target.getNewPass());
             LOGGER.debug("***Pass was changed");
 
         }catch (Exception e){
@@ -103,7 +103,7 @@ public class UserService {
             throw new EditException("Login or email has already used");
         }
 
-        LOGGER.debug("***User profile has already changed");
+        LOGGER.debug("***User profile was changed");
         return userDao.findUserById(Integer.parseInt(targetId));
     }
 
