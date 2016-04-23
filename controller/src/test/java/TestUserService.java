@@ -34,7 +34,6 @@ public class TestUserService {
     private User user1;
     private User user2;
     private User wrongUser1; //with incorrect login
-    private User wrongUser2; //with incorrect email
 
     @After
     public void after() throws ClassNotFoundException {

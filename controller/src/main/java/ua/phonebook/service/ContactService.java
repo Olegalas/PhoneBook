@@ -52,7 +52,7 @@ public class ContactService {
             contactDao.save(contact);
         }catch (Exception e){
             LOGGER.error("***Exception during persistence Contact : ", e);
-            throw new RegistrationException("Login or email already has used");
+            throw new RegistrationException("Login or email has already used");
         }
         LOGGER.info("***New contact has been saved");
     }
