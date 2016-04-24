@@ -13,7 +13,11 @@ public class DropTables {
     private static Logger LOGGER = Logger.getLogger(DropTables.class);
 
     public static void drop() throws ClassNotFoundException {
+
+        // get from properties
+        // use Properties class
         Class.forName("com.mysql.jdbc.Driver");
+        // use test base
         try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook", "root", "root")) {
 
             Statement statement = connection.createStatement();
