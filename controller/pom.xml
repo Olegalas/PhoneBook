@@ -8,24 +8,7 @@
     <version>0.1.0</version>
     <packaging>war</packaging>
 
-    <!--<properties><packing.type>jar</packing.type></properties>-->
-
-    <profiles>
-        <profile>
-            <id>JarProfile</id>
-            <properties>
-                <packing.type>jar</packing.type>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>WarProfile</id>
-            <properties>
-                <packing.type>war</packing.type>
-            </properties>
-        </profile>
-
-    </profiles>
+    <!--todo extract versions to the properties-->
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -33,24 +16,31 @@
         <version>1.3.3.RELEASE</version>
     </parent>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <junit.version>4.12</junit.version>
+        <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
+        <hibernate-jpa-2.1-api.version>1.0.0.Final</hibernate-jpa-2.1-api.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>${mysql-connector-java.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
+            <version>${hibernate-jpa-2.1-api.version}</version>
         </dependency>
 
         <dependency>
@@ -169,9 +159,7 @@
 
     </dependencies>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+
 
     <build>
 
@@ -188,8 +176,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 

@@ -106,7 +106,7 @@ public class TestContactService {
 
     }
 
-    @Test // wrong email
+    @Test(expected = RegistrationException.class)
     public void createNegativeWrongEmail() throws RegistrationException {
 
         userService.registration(user);
@@ -117,11 +117,9 @@ public class TestContactService {
         user.getPhoneBook().add(contact1);
         Contact newContact = new Contact(contact1, user);
 
-        try{
-            contactService.saveContact(newContact);
-        }catch (RegistrationException e){
-            Assert.assertEquals(MESSAGE_REGISTRATION_EXCEPTION, e.getMessage());
-        }
+
+        contactService.saveContact(newContact);
+
 
     }
 
