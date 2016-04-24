@@ -105,7 +105,7 @@ public class MainController {
             return "loginpage";
         } catch (RegistrationException e) {
             LOGGER.error("***LoginException : ", e);
-            model.put("message", e.getMessage());
+            model.put("loginMessage", e.getMessage());
             return "registrationpage";
         }
     }
@@ -179,7 +179,7 @@ public class MainController {
                 LOGGER.info("***Contact was changed");
             }
         } catch (EditException e){
-            model.put("message", e.getMessage());
+            model.put("loginMessage", e.getMessage());
             model.put("userId", id);
             model.put("targetId", targetId);
             return "editpage";
@@ -251,7 +251,7 @@ public class MainController {
         } catch (RegistrationException e) {
 
             LOGGER.error("***Exception during save contact : ", e);
-            model.put("message", e.getMessage());
+            model.put("loginMessage", e.getMessage());
             model.put("userId", id);
             return "add";
         }

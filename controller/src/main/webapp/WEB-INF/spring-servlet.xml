@@ -15,7 +15,6 @@
     <aop:aspectj-autoproxy />
 
     <context:annotation-config/>
-    <!--<mvc:annotation-driven />-->
 
     <!--<context:property-placeholder location="classpath:application.properties"/>-->
 

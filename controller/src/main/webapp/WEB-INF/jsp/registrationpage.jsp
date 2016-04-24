@@ -19,6 +19,10 @@
     <form:form commandName="personAttribute" method="POST" action="/registration">
 
         <tr>
+            <td><span class="error"><c:out value="${loginMessage}" /></span></td>
+        </tr>
+
+        <tr>
             <td><form:label path="login">Login:</form:label></td>
             <td><form:input path="login" disabled="false"/></td>
             <td><form:errors path="login" cssClass="error"/></td>

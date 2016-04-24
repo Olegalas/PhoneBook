@@ -1700,3 +1700,4 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 2016-04-23 01:57:53 DEBUG MainController:87 - ***Incorrect registration..return to registration page
 2016-04-23 01:58:05 DEBUG MainController:84 - ***Enter in registrationPost method
 2016-04-23 01:58:05 DEBUG MainController:87 - ***Incorrect registration..return to registration page
+2016-04-25 01:18:28 INFO  DropTables:27 - ********DataBase was removed

@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <context:property-placeholder location="file://#{systemProperties['lardi.con'] != null ? systemProperties['lardi.con'] : 'classpath*:application.properties'}"/>
+    <context:property-placeholder location="file://#{systemProperties['lardi.conf'] != null ? systemProperties['lardi.con'] : 'classpath*:application.properties'}"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${spring.datasource.driverClassName}"/>
@@ -38,6 +38,3 @@
     </bean>
 
 </beans>
-<!--Для файлового хранилища - в случае отсутствия файла(ов) -
-его(их) необходимо создать. Для СУБД-хранилища в файле
- README.md должен находится SQL запрос для создания всех необходимых таблиц.-->

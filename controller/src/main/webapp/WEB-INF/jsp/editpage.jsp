@@ -17,7 +17,9 @@
 <c:out value="${message}"/>
 <table>
     <form:form commandName="editModel" method="POST" action="/edituser?id=${userId}&targetId=${targetId}">
-
+        <tr>
+            <td><span class="error"><c:out value="${loginMessage}" /></span></td>
+        </tr>
         <tr>
             <td><form:label path="login">Enter login:</form:label></td>
             <td><form:input path="login" disabled="false"/></td>
