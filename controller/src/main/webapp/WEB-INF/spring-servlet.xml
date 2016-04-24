@@ -20,7 +20,7 @@
     <context:property-placeholder location="classpath:application.properties"/>
 
     <import resource="classpath:orm-spring-context.xml"/>
-    <!-- get properties from app.properties-->
+    <!-- get properties from application.properties-->
     <context:component-scan base-package="ua.phonebook"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
