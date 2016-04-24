@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <context:property-placeholder location="#{systemProperties['lardi.con'] != null ? 'file://' + systemProperties['lardi.con'] : 'classpath*:application.properties'}"/>
+    <context:property-placeholder location="#{systemProperties['lardi.conf'] != null ? 'file://' + systemProperties['lardi.con'] : 'classpath*:application.properties'}"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${spring.datasource.driverClassName}"/>
