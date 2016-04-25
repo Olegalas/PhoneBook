@@ -4,6 +4,7 @@
  * 1) java -version 1.8
  * 2) javac -version 1.8
  * 3) apache-maven-3.3.9
+ * 4) mysql server
 
 ## init database sql actions
  * create database phonebook;
